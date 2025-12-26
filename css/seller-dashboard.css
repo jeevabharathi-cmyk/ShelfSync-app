@@ -1,0 +1,8 @@
+.dashboard-sidebar {
+    background-color: #0f172a;
+    /* Slightly darker for seller */
+}
+
+.stat-card h3 {
+    color: var(--accent-color);
+}

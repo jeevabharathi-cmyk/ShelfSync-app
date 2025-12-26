@@ -1,0 +1,36 @@
+.auth-container {
+    max-width: 400px;
+    margin: var(--spacing-2xl) auto;
+    padding: var(--spacing-xl);
+}
+
+.auth-links {
+    text-align: center;
+    margin-top: var(--spacing-lg);
+    font-size: var(--small-size);
+}
+
+.auth-links a {
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.role-switcher {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.role-switcher a {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-md);
+    font-size: var(--small-size);
+    color: var(--text-light);
+}
+
+.role-switcher a.active {
+    background-color: rgba(37, 99, 235, 0.1);
+    color: var(--primary-color);
+    font-weight: 600;
+}

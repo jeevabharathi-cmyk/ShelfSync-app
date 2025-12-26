@@ -1,0 +1,10 @@
+.chart-placeholder {
+    background-color: #f8fafc;
+    border-radius: var(--radius-md);
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-light);
+    border: 2px dashed var(--border-color);
+}

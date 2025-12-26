@@ -1,0 +1,16 @@
+.auth-container {
+    max-width: 500px;
+    margin: var(--spacing-2xl) auto;
+    padding: var(--spacing-xl);
+}
+
+.auth-links {
+    text-align: center;
+    margin-top: var(--spacing-lg);
+    font-size: var(--small-size);
+}
+
+.auth-links a {
+    color: var(--primary-color);
+    font-weight: 500;
+}

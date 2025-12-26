@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <aside class="dashboard-sidebar">
+        <a href="../index.html" class="logo">
+            <span>📚 ShelfSync Admin</span>
+        </a>
+        <nav class="sidebar-nav">
+            <a href="admin-dashboard.html" class="sidebar-link">Dashboard Overview</a>
+            <a href="admin-users.html" class="sidebar-link">User Management</a>
+            <a href="admin-inventory.html" class="sidebar-link">All Inventory</a>
+            <a href="admin-reports.html" class="sidebar-link active">Reports</a>
+            <a href="admin-settings.html" class="sidebar-link">Settings</a>
+            <a href="../index.html" class="sidebar-link" style="margin-top: auto; color: var(--error-color);">Logout</a>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="dashboard-main">
+        <header class="dashboard-header">
+            <h2>Reports & Analytics</h2>
+            <div style="display: flex; align-items: center; gap: var(--spacing-md);">
+                <button class="btn btn-outline">Export Data</button>
+                <div
+                    style="width: 40px; height: 40px; background-color: var(--secondary-color); border-radius: 50%; color: white; display: flex; align-items: center; justify-content: center;">
+                    A
+                </div>
+            </div>
+        </header>
+
+        <!-- Key Metrics -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h3>$12,450</h3>
+                <p>Monthly Revenue</p>
+                <span class="text-success" style="font-size: 0.8rem; display: block; margin-top: 0.5rem;">+12% from
+                    last month</span>
+            </div>
+            <div class="stat-card">
+                <h3>1,240</h3>
+                <p>New Users</p>
+                <span class="text-success" style="font-size: 0.8rem; display: block; margin-top: 0.5rem;">+5% from
+                    last month</span>
+            </div>
+            <div class="stat-card">
+                <h3>856</h3>
+                <p>Orders Processed</p>
+                <span class="text-success" style="font-size: 0.8rem; display: block; margin-top: 0.5rem;">+8% from
+                    last month</span>
+            </div>
+            <div class="stat-card">
+                <h3>2.4%</h3>
+                <p>Return Rate</p>
+                <span class="text-error" style="font-size: 0.8rem; display: block; margin-top: 0.5rem;">+0.2% from
+                    last month</span>
+            </div>
+        </div>
+
+        <div class="grid-2">
+            <!-- Sales Chart -->
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Sales Overview</h3>
+                    <p class="card-subtitle">Revenue over the last 6 months</p>
+                    <div class="chart-placeholder">
+                        [Sales Chart Visualization]
+                    </div>
+                </div>
+            </div>
+
+            <!-- User Growth -->
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">User Growth</h3>
+                    <p class="card-subtitle">New registrations by role</p>
+                    <div class="chart-placeholder">
+                        [User Growth Chart Visualization]
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Top Sellers Table -->
+        <div class="card" style="margin-top: var(--spacing-xl);">
+            <div class="card-body">
+                <h3 class="card-title">Top Performing Sellers</h3>
+                <div class="table-container" style="box-shadow: none; border: none;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Seller Name</th>
+                                <th>Total Sales</th>
+                                <th>Orders</th>
+                                <th>Rating</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="font-weight: 500;">BookHaven Store</td>
+                                <td>$4,500</td>
+                                <td>320</td>
+                                <td><span class="text-warning">★</span> 4.8</td>
+                                <td><span class="badge badge-success">Top Rated</span></td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: 500;">TechBooks Inc.</td>
+                                <td>$3,200</td>
+                                <td>150</td>
+                                <td><span class="text-warning">★</span> 4.9</td>
+                                <td><span class="badge badge-success">Active</span></td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: 500;">Classic Reads</td>
+                                <td>$2,100</td>
+                                <td>210</td>
+                                <td><span class="text-warning">★</span> 4.5</td>
+                                <td><span class="badge badge-success">Active</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </main>
+    </div>
+
+    </body>
+
+</html>
