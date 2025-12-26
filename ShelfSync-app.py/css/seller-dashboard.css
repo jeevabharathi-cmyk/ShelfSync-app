@@ -1,0 +1,7 @@
+.dashboard-sidebar.seller-theme {
+    background-color: #0f172a;
+}
+
+.stat-card h3.seller-accent {
+    color: var(--accent-color);
+}

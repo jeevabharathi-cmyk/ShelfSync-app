@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seller Dashboard - ShelfSync</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <style>
+        :root {
+            --seller-accent: #f43f5e;
+            --seller-accent-light: rgba(244, 63, 94, 0.1);
+            --seller-gradient: linear-gradient(135deg, #f43f5e, #fb923c);
+        }
+
+        .sidebar-link.active {
+            border-left-color: var(--seller-accent) !important;
+            background: linear-gradient(90deg, rgba(244, 63, 94, 0.15), rgba(251, 146, 60, 0.05)) !important;
+            box-shadow: 0 4px 16px rgba(244, 63, 94, 0.2) !important;
+        }
+
+        .btn-seller {
+            background: var(--seller-gradient);
+            color: white;
+            border: none;
+        }
+
+        .btn-seller:hover {
+            box-shadow: 0 8px 20px rgba(244, 63, 94, 0.3);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="dashboard-sidebar">
+            <div class="logo">
+                <span>🛍️ Seller Portal</span>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="seller-dashboard.html" class="sidebar-link active">
+                    <span>📊 Overview</span>
+                </a>
+                <a href="seller-inventory.html" class="sidebar-link">
+                    <span>📚 My Inventory</span>
+                </a>
+                <a href="seller-orders.html" class="sidebar-link">
+                    <span>📦 Orders</span>
+                </a>
+                <a href="seller-earnings.html" class="sidebar-link">
+                    <span>💰 Earnings</span>
+                </a>
+                <a href="seller-profile.html" class="sidebar-link">
+                    <span>👤 Store Profile</span>
+                </a>
+                <a href="seller-settings.html" class="sidebar-link">
+                    <span>⚙️ Settings</span>
+                </a>
+            </nav>
+
+            <!-- Sidebar Profile -->
+            <div class="sidebar-profile"
+                style="margin-top: auto; padding: var(--space-4); background: rgba(255, 255, 255, 0.05); border-radius: var(--radius-lg); display: flex; align-items: center; gap: var(--space-3); border: 1px solid rgba(255, 255, 255, 0.1);">
+                <div
+                    style="width: 40px; height: 40px; background: var(--seller-gradient); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: var(--font-bold);">
+                    S
+                </div>
+                <div style="overflow: hidden;">
+                    <p style="color: white; font-weight: var(--font-semibold); margin: 0; font-size: var(--text-sm);">
+                        BookHaven Store</p>
+                    <p
+                        style="color: #94a3b8; font-size: var(--text-xs); margin: 0; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">
+                        contact@bookhaven.com</p>
+                </div>
+            </div>
+            <a href="../index.html" class="sidebar-link" style="margin-top: var(--space-4); color: var(--error-color);">
+                <span>🚪 Logout</span>
+            </a>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <!-- Header -->
+            <header class="dashboard-header">
+                <div style="display: flex; align-items: center; gap: var(--space-6); flex: 1;">
+                    <div>
+                        <h2>Seller Dashboard</h2>
+                        <p class="text-light">Welcome back, BookHaven</p>
+                    </div>
+                    <!-- Search Bar -->
+                    <div class="header-search" style="flex: 1; max-width: 400px; position: relative;">
+                        <span
+                            style="position: absolute; left: var(--space-4); top: 50%; transform: translateY(-50%); color: var(--text-muted);">🔍</span>
+                        <input type="text" class="form-control" placeholder="Search orders, books..."
+                            style="padding-left: var(--space-10); background: rgba(255, 255, 255, 0.5); border-radius: var(--radius-full);">
+                    </div>
+                </div>
+                <div style="display: flex; align-items: center; gap: var(--space-6);">
+                    <!-- Notifications -->
+                    <div class="header-notifications"
+                        style="position: relative; cursor: pointer; font-size: var(--text-xl);">
+                        🔔
+                        <span
+                            style="position: absolute; top: -5px; right: -5px; width: 18px; height: 18px; background: var(--seller-accent); color: white; border-radius: 50%; font-size: 10px; display: flex; align-items: center; justify-content: center; font-weight: var(--font-bold); border: 2px solid white;">5</span>
+                    </div>
+                    <div
+                        style="width: 48px; height: 48px; background: var(--seller-gradient); border-radius: 50%; color: white; display: flex; align-items: center; justify-content: center; font-weight: var(--font-bold); font-size: var(--text-lg); cursor: pointer; border: 2px solid white; box-shadow: var(--shadow-sm);">
+                        S
+                    </div>
+                </div>
+            </header>
+
+            <!-- Quick Actions -->
+            <div style="margin-bottom: var(--space-8);">
+                <h3 style="margin-bottom: var(--space-4);">Quick Actions</h3>
+                <div
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-4);">
+                    <button class="btn btn-seller hover-lift"
+                        style="padding: var(--space-6); flex-direction: column; gap: var(--space-2); height: auto;">
+                        <span style="font-size: var(--text-2xl);">📚</span>
+                        <span>Add New Book</span>
+                    </button>
+                    <button class="btn btn-outline hover-lift"
+                        style="padding: var(--space-6); flex-direction: column; gap: var(--space-2); height: auto; background: white;">
+                        <span style="font-size: var(--text-2xl);">📦</span>
+                        <span>View Orders</span>
+                    </button>
+                    <button class="btn btn-outline hover-lift"
+                        style="padding: var(--space-6); flex-direction: column; gap: var(--space-2); height: auto; background: white;">
+                        <span style="font-size: var(--text-2xl);">📊</span>
+                        <span>Inventory Report</span>
+                    </button>
+                    <button class="btn btn-outline hover-lift"
+                        style="padding: var(--space-6); flex-direction: column; gap: var(--space-2); height: auto; background: white;">
+                        <span style="font-size: var(--text-2xl);">⚙️</span>
+                        <span>Settings</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="stats-grid">
+                <div class="stat-card hover-lift">
+                    <div style="display: flex; justify-content: space-between; align-items: start;">
+                        <div>
+                            <p
+                                style="color: var(--text-light); font-size: var(--text-sm); margin-bottom: var(--space-2);">
+                                Monthly Sales</p>
+                            <h3 style="color: var(--seller-accent); font-size: var(--text-4xl); margin: 0;">$12.3K</h3>
+                        </div>
+                        <div
+                            style="width: 48px; height: 48px; background: var(--seller-accent-light); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; font-size: var(--text-2xl);">
+                            💰
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: var(--space-2); margin-top: var(--space-3);">
+                        <span
+                            style="color: var(--success-color); font-size: var(--text-sm); font-weight: var(--font-bold);">↑
+                            15.4%</span>
+                        <span style="color: var(--text-muted); font-size: var(--text-xs);">vs last month</span>
+                    </div>
+                </div>
+
+                <div class="stat-card hover-lift">
+                    <div style="display: flex; justify-content: space-between; align-items: start;">
+                        <div>
+                            <p
+                                style="color: var(--text-light); font-size: var(--text-sm); margin-bottom: var(--space-2);">
+                                Total Orders</p>
+                            <h3 style="color: var(--seller-accent); font-size: var(--text-4xl); margin: 0;">320</h3>
+                        </div>
+                        <div
+                            style="width: 48px; height: 48px; background: rgba(59, 130, 246, 0.1); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; font-size: var(--text-2xl);">
+                            📦
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: var(--space-2); margin-top: var(--space-3);">
+                        <span
+                            style="color: var(--success-color); font-size: var(--text-sm); font-weight: var(--font-bold);">↑
+                            5.2%</span>
+                        <span style="color: var(--text-muted); font-size: var(--text-xs);">vs last month</span>
+                    </div>
+                </div>
+
+                <div class="stat-card hover-lift">
+                    <div style="display: flex; justify-content: space-between; align-items: start;">
+                        <div>
+                            <p
+                                style="color: var(--text-light); font-size: var(--text-sm); margin-bottom: var(--space-2);">
+                                Active Listings</p>
+                            <h3 style="color: var(--seller-accent); font-size: var(--text-4xl); margin: 0;">89</h3>
+                        </div>
+                        <div
+                            style="width: 48px; height: 48px; background: rgba(16, 185, 129, 0.1); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; font-size: var(--text-2xl);">
+                            📚
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: var(--space-2); margin-top: var(--space-3);">
+                        <span
+                            style="color: var(--success-color); font-size: var(--text-sm); font-weight: var(--font-bold);">↑
+                            12.0%</span>
+                        <span style="color: var(--text-muted); font-size: var(--text-xs);">new books added</span>
+                    </div>
+                </div>
+
+                <div class="stat-card hover-lift">
+                    <div style="display: flex; justify-content: space-between; align-items: start;">
+                        <div>
+                            <p
+                                style="color: var(--text-light); font-size: var(--text-sm); margin-bottom: var(--space-2);">
+                                Seller Rating</p>
+                            <h3 style="color: #f59e0b; font-size: var(--text-4xl); margin: 0;">4.9</h3>
+                        </div>
+                        <div
+                            style="width: 48px; height: 48px; background: rgba(245, 158, 11, 0.1); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; font-size: var(--text-2xl);">
+                            ⭐
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: var(--space-2); margin-top: var(--space-3);">
+                        <span
+                            style="color: var(--success-color); font-size: var(--text-sm); font-weight: var(--font-bold);">Top
+                            Rated</span>
+                        <span style="color: var(--text-muted); font-size: var(--text-xs);">98% positive feedback</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content Grid -->
+            <div
+                style="display: grid; grid-template-columns: 2fr 1fr; gap: var(--space-8); margin-top: var(--space-8);">
+                <!-- Recent Orders -->
+                <div>
+                    <div class="flex-between" style="margin-bottom: var(--space-4);">
+                        <h3 style="margin: 0;">Recent Orders</h3>
+                        <button class="btn btn-ghost btn-sm">View All →</button>
+                    </div>
+                    <div class="table-container hover-lift">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Book</th>
+                                    <th>Buyer</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><span style="font-weight: var(--font-bold);">#ORD-501</span></td>
+                                    <td>Learning Python</td>
+                                    <td>Jane Doe</td>
+                                    <td><span class="badge badge-success">Delivered</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span style="font-weight: var(--font-bold);">#ORD-502</span></td>
+                                    <td>Intro to Algorithms</td>
+                                    <td>Adam Smith</td>
+                                    <td><span class="badge badge-warning">Shipped</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span style="font-weight: var(--font-bold);">#ORD-503</span></td>
+                                    <td>Clean Code</td>
+                                    <td>Sarah Wilson</td>
+                                    <td><span class="badge"
+                                            style="background: rgba(59, 130, 246, 0.1); color: var(--primary-color);">Pending</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div>
+                    <h3 style="margin-bottom: var(--space-4);">Recent Activity</h3>
+                    <div class="card hover-lift">
+                        <div class="card-body" style="display: flex; flex-direction: column; gap: var(--space-4);">
+                            <div style="display: flex; gap: var(--space-3); align-items: flex-start;">
+                                <div
+                                    style="width: 32px; height: 32px; background: var(--seller-accent-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px;">
+                                    📦</div>
+                                <div>
+                                    <p style="margin: 0; font-size: var(--text-sm); font-weight: var(--font-medium);">
+                                        New order received</p>
+                                    <p style="margin: 0; font-size: var(--text-xs); color: var(--text-muted);">#ORD-503
+                                        from Sarah Wilson</p>
+                                    <p style="margin: var(--space-1) 0 0; font-size: 10px; color: var(--text-muted);">10
+                                        mins ago</p>
+                                </div>
+                            </div>
+                            <div style="display: flex; gap: var(--space-3); align-items: flex-start;">
+                                <div
+                                    style="width: 32px; height: 32px; background: rgba(16, 185, 129, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px;">
+                                    💰</div>
+                                <div>
+                                    <p style="margin: 0; font-size: var(--text-sm); font-weight: var(--font-medium);">
+                                        Payout completed</p>
+                                    <p style="margin: 0; font-size: var(--text-xs); color: var(--text-muted);">$1,200.00
+                                        transferred to bank</p>
+                                    <p style="margin: var(--space-1) 0 0; font-size: 10px; color: var(--text-muted);">2
+                                        hours ago</p>
+                                </div>
+                            </div>
+                            <div style="display: flex; gap: var(--space-3); align-items: flex-start;">
+                                <div
+                                    style="width: 32px; height: 32px; background: rgba(59, 130, 246, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px;">
+                                    📚</div>
+                                <div>
+                                    <p style="margin: 0; font-size: var(--text-sm); font-weight: var(--font-medium);">
+                                        Inventory updated</p>
+                                    <p style="margin: 0; font-size: var(--text-xs); color: var(--text-muted);">"The
+                                        Great Gatsby" restocked</p>
+                                    <p style="margin: var(--space-1) 0 0; font-size: 10px; color: var(--text-muted);">5
+                                        hours ago</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

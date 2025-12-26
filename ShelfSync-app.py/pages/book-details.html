@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Details - ShelfSync</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <style>
+        :root {
+            --customer-accent: #4f46e5;
+            --customer-accent-light: rgba(79, 70, 229, 0.1);
+            --customer-gradient: linear-gradient(135deg, #4f46e5, #3b82f6);
+        }
+
+        .book-details-container {
+            display: grid;
+            grid-template-columns: 400px 1fr;
+            gap: var(--space-12);
+            margin: var(--space-12) 0;
+            align-items: start;
+        }
+
+        .book-image-sticky {
+            position: sticky;
+            top: 100px;
+        }
+
+        .book-image-large {
+            width: 100%;
+            height: 560px;
+            object-fit: cover;
+            border-radius: var(--radius-2xl);
+            box-shadow: var(--shadow-2xl);
+            border: 1px solid var(--border-color);
+        }
+
+        .info-section {
+            margin-bottom: var(--space-8);
+        }
+
+        .info-title {
+            font-size: var(--text-2xl);
+            font-weight: var(--font-bold);
+            margin-bottom: var(--space-4);
+            color: var(--text-color);
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+        }
+
+        .spec-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-4);
+        }
+
+        .spec-item {
+            padding: var(--space-4);
+            background: var(--surface-color);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-color);
+        }
+
+        .spec-label {
+            font-size: var(--text-xs);
+            color: var(--text-muted);
+            text-transform: uppercase;
+            margin-bottom: var(--space-1);
+        }
+
+        .spec-value {
+            font-weight: var(--font-bold);
+            font-size: var(--text-sm);
+        }
+
+        .seller-card {
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+            padding: var(--space-4);
+            background: var(--customer-accent-light);
+            border-radius: var(--radius-xl);
+            border: 1px solid var(--customer-accent);
+            margin-top: var(--space-6);
+        }
+
+        @media (max-width: 992px) {
+            .book-details-container {
+                grid-template-columns: 1fr;
+            }
+
+            .book-image-sticky {
+                position: static;
+            }
+
+            .book-image-large {
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar"
+        style="background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border-color);">
+        <div class="container">
+            <a href="../index.html" class="logo">
+                <span>📚 ShelfSync</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="all-books.html" class="nav-link">Browse Books</a></li>
+                <li><a href="customer-dashboard.html" class="nav-link">Dashboard</a></li>
+                <li><a href="customer-orders.html" class="nav-link">Orders</a></li>
+                <li style="margin-left: var(--space-4);">
+                    <div
+                        style="width: 36px; height: 36px; background: var(--customer-gradient); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: var(--font-bold); cursor: pointer;">
+                        JD</div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Breadcrumbs -->
+        <div style="margin-top: var(--space-8); font-size: var(--text-sm); color: var(--text-muted);">
+            <a href="all-books.html" style="color: inherit; text-decoration: none;">Browse Books</a> /
+            <a href="#" style="color: inherit; text-decoration: none;">Fiction</a> /
+            <span style="color: var(--text-color);">The Great Gatsby</span>
+        </div>
+
+        <div class="book-details-container">
+            <!-- Left: Image -->
+            <div class="book-image-sticky">
+                <img src="../assets/book_cover_gatsby_1766747844476.png" alt="The Great Gatsby"
+                    class="book-image-large">
+                <div style="display: flex; gap: var(--space-4); margin-top: var(--space-6);">
+                    <button class="btn btn-customer" style="flex: 1; padding: var(--space-4);">🛒 Add to Cart</button>
+                    <button class="btn btn-outline"
+                        style="width: 60px; height: 60px; padding: 0; display: flex; align-items: center; justify-content: center; font-size: var(--text-2xl);">❤️</button>
+                </div>
+            </div>
+
+            <!-- Right: Info -->
+            <main>
+                <div class="info-section">
+                    <div
+                        style="display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-2);">
+                        <span class="badge"
+                            style="background: var(--customer-accent-light); color: var(--customer-accent);">Bestseller</span>
+                        <div style="color: #f59e0b; font-weight: var(--font-bold);">⭐⭐⭐⭐⭐ (128 reviews)</div>
+                    </div>
+                    <h1 style="font-size: var(--text-5xl); margin-bottom: var(--space-2);">The Great Gatsby</h1>
+                    <p style="font-size: var(--text-xl); color: var(--text-muted); margin-bottom: var(--space-6);">by <a
+                            href="#"
+                            style="color: var(--customer-accent); text-decoration: none; font-weight: var(--font-bold);">F.
+                            Scott Fitzgerald</a></p>
+
+                    <div
+                        style="display: flex; align-items: center; gap: var(--space-6); margin-bottom: var(--space-8);">
+                        <span
+                            style="font-size: var(--text-4xl); font-weight: var(--font-bold); color: var(--text-color);">$12.99</span>
+                        <span
+                            style="text-decoration: line-through; color: var(--text-muted); font-size: var(--text-xl);">$19.99</span>
+                        <span class="badge badge-success" style="font-size: var(--text-sm);">Save 35%</span>
+                    </div>
+
+                    <div class="card" style="background: var(--surface-color); border: 1px solid var(--border-color);">
+                        <div class="card-body">
+                            <h4 style="margin-bottom: var(--space-2);">Description</h4>
+                            <p style="line-height: 1.8; color: var(--text-secondary);">
+                                The Great Gatsby, F. Scott Fitzgerald's third book, stands as the supreme achievement of
+                                his career. This exemplary novel of the Jazz Age has been acclaimed by generations of
+                                readers. The story of the fabulously wealthy Jay Gatsby and his love for the beautiful
+                                Daisy Buchanan, of lavish parties on Long Island at a time when The New York Times noted
+                                "gin was the national drink and sex the national obsession," it is an exquisitely
+                                crafted tale of America in the 1920s.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-section">
+                    <h3 class="info-title"><span>📋</span> Product Specifications</h3>
+                    <div class="spec-grid">
+                        <div class="spec-item">
+                            <p class="spec-label">ISBN-13</p>
+                            <p class="spec-value">978-0743273565</p>
+                        </div>
+                        <div class="spec-item">
+                            <p class="spec-label">Publisher</p>
+                            <p class="spec-value">Scribner</p>
+                        </div>
+                        <div class="spec-item">
+                            <p class="spec-label">Publication Date</p>
+                            <p class="spec-value">September 30, 2004</p>
+                        </div>
+                        <div class="spec-item">
+                            <p class="spec-label">Language</p>
+                            <p class="spec-value">English</p>
+                        </div>
+                        <div class="spec-item">
+                            <p class="spec-label">Print Length</p>
+                            <p class="spec-value">180 pages</p>
+                        </div>
+                        <div class="spec-item">
+                            <p class="spec-label">Dimensions</p>
+                            <p class="spec-value">5.2 x 0.5 x 8 inches</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-section">
+                    <h3 class="info-title"><span>🏪</span> Seller Information</h3>
+                    <div class="seller-card">
+                        <div
+                            style="width: 50px; height: 50px; background: var(--customer-accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: var(--font-bold); font-size: var(--text-xl);">
+                            B</div>
+                        <div style="flex: 1;">
+                            <h4 style="margin: 0;">BookHaven Store</h4>
+                            <p style="margin: 0; font-size: var(--text-xs); color: var(--text-muted);">Top Rated Seller
+                                • 98% Positive Feedback</p>
+                        </div>
+                        <a href="seller-details.html" class="btn btn-outline btn-sm">Visit Store</a>
+                    </div>
+                </div>
+
+                <!-- Shipping Info -->
+                <div
+                    style="display: flex; gap: var(--space-8); margin-top: var(--space-8); padding: var(--space-6); background: var(--surface-color); border-radius: var(--radius-xl); border: 1px solid var(--border-color);">
+                    <div style="display: flex; align-items: center; gap: var(--space-3);">
+                        <span style="font-size: var(--text-2xl);">🚚</span>
+                        <div>
+                            <p style="margin: 0; font-weight: var(--font-bold); font-size: var(--text-sm);">Free
+                                Delivery</p>
+                            <p style="margin: 0; font-size: var(--text-xs); color: var(--text-muted);">On orders over
+                                $35</p>
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: var(--space-3);">
+                        <span style="font-size: var(--text-2xl);">🛡️</span>
+                        <div>
+                            <p style="margin: 0; font-weight: var(--font-bold); font-size: var(--text-sm);">Secure
+                                Payment</p>
+                            <p style="margin: 0; font-size: var(--text-xs); color: var(--text-muted);">100% safe
+                                transactions</p>
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: var(--space-3);">
+                        <span style="font-size: var(--text-2xl);">🔄</span>
+                        <div>
+                            <p style="margin: 0; font-weight: var(--font-bold); font-size: var(--text-sm);">Easy Returns
+                            </p>
+                            <p style="margin: 0; font-size: var(--text-xs); color: var(--text-muted);">30-day return
+                                policy</p>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer"
+        style="background: var(--surface-color); border-top: 1px solid var(--border-color); margin-top: var(--space-16);">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4 style="color: var(--customer-accent);">📚 ShelfSync</h4>
+                    <p>Connecting readers with their next favorite story. Premium bookstore experience.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="all-books.html">Browse Books</a></li>
+                        <li><a href="customer-dashboard.html">Dashboard</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 ShelfSync. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

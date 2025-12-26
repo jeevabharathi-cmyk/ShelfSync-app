@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delivery History - ShelfSync</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <style>
+        :root {
+            --delivery-accent: #10b981;
+            --delivery-accent-light: rgba(16, 185, 129, 0.1);
+            --delivery-gradient: linear-gradient(135deg, #10b981, #059669);
+        }
+
+        .sidebar-link.active {
+            border-left-color: var(--delivery-accent) !important;
+            background: linear-gradient(90deg, rgba(16, 185, 129, 0.15), rgba(5, 150, 105, 0.05)) !important;
+            box-shadow: 0 4px 16px rgba(16, 185, 129, 0.2) !important;
+        }
+
+        .history-card {
+            background: white;
+            border-radius: var(--radius-xl);
+            padding: var(--space-6);
+            margin-bottom: var(--space-4);
+            border: 1px solid var(--border-color);
+            transition: all var(--transition-fast);
+        }
+
+        .history-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+
+        .history-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-4);
+            padding-bottom: var(--space-4);
+            border-bottom: 1px solid var(--border-light);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="dashboard-sidebar">
+            <div class="logo">
+                <span>🚚 Delivery Portal</span>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="delivery-dashboard.html" class="sidebar-link">
+                    <span>🗺️ My Route</span>
+                </a>
+                <a href="delivery-history.html" class="sidebar-link active">
+                    <span>📜 History</span>
+                </a>
+                <a href="delivery-earnings.html" class="sidebar-link">
+                    <span>💰 Earnings</span>
+                </a>
+                <a href="delivery-settings.html" class="sidebar-link">
+                    <span>⚙️ Settings</span>
+                </a>
+            </nav>
+
+            <!-- Sidebar Profile -->
+            <div class="sidebar-profile"
+                style="margin-top: auto; padding: var(--space-4); background: rgba(255, 255, 255, 0.05); border-radius: var(--radius-lg); display: flex; align-items: center; gap: var(--space-3); border: 1px solid rgba(255, 255, 255, 0.1);">
+                <div
+                    style="width: 40px; height: 40px; background: var(--delivery-gradient); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: var(--font-bold);">
+                    DP
+                </div>
+                <div style="overflow: hidden;">
+                    <p style="color: white; font-weight: var(--font-semibold); margin: 0; font-size: var(--text-sm);">
+                        Dave Partner</p>
+                    <p
+                        style="color: #94a3b8; font-size: var(--text-xs); margin: 0; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">
+                        dave.p@shelf-sync.com</p>
+                </div>
+            </div>
+            <a href="../index.html" class="sidebar-link" style="margin-top: var(--space-4); color: var(--error-color);">
+                <span>🚪 Logout</span>
+            </a>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <!-- Header -->
+            <header class="dashboard-header">
+                <div style="display: flex; align-items: center; gap: var(--space-6); flex: 1;">
+                    <div>
+                        <h2>Delivery History</h2>
+                        <p class="text-light">Review your completed deliveries and performance</p>
+                    </div>
+                </div>
+                <div style="display: flex; gap: var(--space-3);">
+                    <input type="date" class="form-control" style="width: auto;">
+                    <button class="btn btn-outline btn-sm">Export CSV</button>
+                </div>
+            </header>
+
+            <!-- History Stats -->
+            <div class="stats-grid" style="margin-bottom: var(--space-8);">
+                <div class="stat-card">
+                    <p class="text-light" style="font-size: var(--text-sm); margin-bottom: var(--space-1);">Total Trips
+                    </p>
+                    <h3 style="font-size: var(--text-2xl); margin: 0;">156</h3>
+                </div>
+                <div class="stat-card">
+                    <p class="text-light" style="font-size: var(--text-sm); margin-bottom: var(--space-1);">Completed
+                    </p>
+                    <h3 style="font-size: var(--text-2xl); margin: 0; color: var(--success-color);">152</h3>
+                </div>
+                <div class="stat-card">
+                    <p class="text-light" style="font-size: var(--text-sm); margin-bottom: var(--space-1);">Cancelled
+                    </p>
+                    <h3 style="font-size: var(--text-2xl); margin: 0; color: var(--error-color);">4</h3>
+                </div>
+                <div class="stat-card">
+                    <p class="text-light" style="font-size: var(--text-sm); margin-bottom: var(--space-1);">Avg. Time
+                    </p>
+                    <h3 style="font-size: var(--text-2xl); margin: 0;">24 mins</h3>
+                </div>
+            </div>
+
+            <!-- History List -->
+            <div class="history-list">
+                <!-- Trip 1 -->
+                <div class="history-card">
+                    <div class="history-item-header">
+                        <div>
+                            <span class="badge badge-success">Completed</span>
+                            <span style="margin-left: var(--space-3); font-weight: var(--font-bold);">Dec 25, 2025 •
+                                2:45 PM</span>
+                        </div>
+                        <div style="font-weight: var(--font-bold); color: var(--delivery-accent);">+$12.50</div>
+                    </div>
+                    <div style="display: flex; gap: var(--space-8);">
+                        <div style="flex: 1;">
+                            <p
+                                style="font-size: var(--text-xs); color: var(--text-muted); text-transform: uppercase; margin-bottom: var(--space-1);">
+                                Pickup</p>
+                            <p style="font-size: var(--text-sm); font-weight: var(--font-bold);">BookHaven Store</p>
+                        </div>
+                        <div style="flex: 1;">
+                            <p
+                                style="font-size: var(--text-xs); color: var(--text-muted); text-transform: uppercase; margin-bottom: var(--space-1);">
+                                Delivery</p>
+                            <p style="font-size: var(--text-sm); font-weight: var(--font-bold);">123 Main St,
+                                Springfield</p>
+                        </div>
+                        <div style="flex: 1;">
+                            <p
+                                style="font-size: var(--text-xs); color: var(--text-muted); text-transform: uppercase; margin-bottom: var(--space-1);">
+                                Order ID</p>
+                            <p style="font-size: var(--text-sm); font-weight: var(--font-bold);">#ORD-101</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Trip 2 -->
+                <div class="history-card">
+                    <div class="history-item-header">
+                        <div>
+                            <span class="badge badge-success">Completed</span>
+                            <span style="margin-left: var(--space-3); font-weight: var(--font-bold);">Dec 25, 2025 •
+                                1:15 PM</span>
+                        </div>
+                        <div style="font-weight: var(--font-bold); color: var(--delivery-accent);">+$10.00</div>
+                    </div>
+                    <div style="display: flex; gap: var(--space-8);">
+                        <div style="flex: 1;">
+                            <p
+                                style="font-size: var(--text-xs); color: var(--text-muted); text-transform: uppercase; margin-bottom: var(--space-1);">
+                                Pickup</p>
+                            <p style="font-size: var(--text-sm); font-weight: var(--font-bold);">Pages & Co</p>
+                        </div>
+                        <div style="flex: 1;">
+                            <p
+                                style="font-size: var(--text-xs); color: var(--text-muted); text-transform: uppercase; margin-bottom: var(--space-1);">
+                                Delivery</p>
+                            <p style="font-size: var(--text-sm); font-weight: var(--font-bold);">456 Oak Ave,
+                                Springfield</p>
+                        </div>
+                        <div style="flex: 1;">
+                            <p
+                                style="font-size: var(--text-xs); color: var(--text-muted); text-transform: uppercase; margin-bottom: var(--space-1);">
+                                Order ID</p>
+                            <p style="font-size: var(--text-sm); font-weight: var(--font-bold);">#ORD-098</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Trip 3 -->
+                <div class="history-card">
+                    <div class="history-item-header">
+                        <div>
+                            <span class="badge" style="background: var(--error-color); color: white;">Cancelled</span>
+                            <span style="margin-left: var(--space-3); font-weight: var(--font-bold);">Dec 24, 2025 •
+                                4:30 PM</span>
+                        </div>
+                        <div style="font-weight: var(--font-bold); color: var(--text-muted);">$0.00</div>
+                    </div>
+                    <div style="display: flex; gap: var(--space-8);">
+                        <div style="flex: 1;">
+                            <p
+                                style="font-size: var(--text-xs); color: var(--text-muted); text-transform: uppercase; margin-bottom: var(--space-1);">
+                                Pickup</p>
+                            <p style="font-size: var(--text-sm); font-weight: var(--font-bold);">City Books</p>
+                        </div>
+                        <div style="flex: 1;">
+                            <p
+                                style="font-size: var(--text-xs); color: var(--text-muted); text-transform: uppercase; margin-bottom: var(--space-1);">
+                                Delivery</p>
+                            <p style="font-size: var(--text-sm); font-weight: var(--font-bold);">789 Pine Ln,
+                                Springfield</p>
+                        </div>
+                        <div style="flex: 1;">
+                            <p
+                                style="font-size: var(--text-xs); color: var(--text-muted); text-transform: uppercase; margin-bottom: var(--space-1);">
+                                Reason</p>
+                            <p style="font-size: var(--text-sm); font-weight: var(--font-bold);">Customer Unavailable
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="flex-center" style="gap: var(--space-2); margin-top: var(--space-8);">
+                <button class="btn btn-ghost" disabled>← Prev</button>
+                <button class="btn btn-delivery" style="width: 40px; height: 40px; padding: 0;">1</button>
+                <button class="btn btn-outline"
+                    style="width: 40px; height: 40px; padding: 0; background: white;">2</button>
+                <button class="btn btn-outline"
+                    style="width: 40px; height: 40px; padding: 0; background: white;">3</button>
+                <button class="btn btn-outline" style="background: white;">Next →</button>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

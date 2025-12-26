@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Orders - ShelfSync</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <style>
+        :root {
+            --customer-accent: #4f46e5;
+            --customer-accent-light: rgba(79, 70, 229, 0.1);
+            --customer-gradient: linear-gradient(135deg, #4f46e5, #3b82f6);
+        }
+
+        .sidebar-link.active {
+            border-left-color: var(--customer-accent) !important;
+            background: linear-gradient(90deg, rgba(79, 70, 229, 0.15), rgba(59, 130, 246, 0.05)) !important;
+            box-shadow: 0 4px 16px rgba(79, 70, 229, 0.2) !important;
+        }
+
+        .btn-customer {
+            background: var(--customer-gradient);
+            color: white;
+            border: none;
+        }
+
+        .btn-customer:hover {
+            box-shadow: 0 8px 20px rgba(79, 70, 229, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .order-card {
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            margin-bottom: var(--space-6);
+            background: white;
+            transition: all var(--transition-fast);
+        }
+
+        .order-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+
+        .order-header {
+            padding: var(--space-4) var(--space-6);
+            background: var(--surface-color);
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .order-body {
+            padding: var(--space-6);
+        }
+
+        .order-item {
+            display: flex;
+            gap: var(--space-6);
+            padding-bottom: var(--space-6);
+            margin-bottom: var(--space-6);
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .order-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+
+        .order-footer {
+            padding: var(--space-4) var(--space-6);
+            background: var(--surface-color);
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: flex-end;
+            gap: var(--space-3);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="dashboard-sidebar">
+            <div class="logo">
+                <span>📚 Customer Portal</span>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="customer-dashboard.html" class="sidebar-link">
+                    <span>📊 Overview</span>
+                </a>
+                <a href="all-books.html" class="sidebar-link">
+                    <span>🔍 Browse Books</span>
+                </a>
+                <a href="customer-orders.html" class="sidebar-link active">
+                    <span>📦 My Orders</span>
+                </a>
+                <a href="customer-wishlist.html" class="sidebar-link">
+                    <span>❤️ Wishlist</span>
+                </a>
+                <a href="customer-account.html" class="sidebar-link">
+                    <span>👤 My Account</span>
+                </a>
+            </nav>
+
+            <!-- Sidebar Profile -->
+            <div class="sidebar-profile"
+                style="margin-top: auto; padding: var(--space-4); background: rgba(255, 255, 255, 0.05); border-radius: var(--radius-lg); display: flex; align-items: center; gap: var(--space-3); border: 1px solid rgba(255, 255, 255, 0.1);">
+                <div
+                    style="width: 40px; height: 40px; background: var(--customer-gradient); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: var(--font-bold);">
+                    JD
+                </div>
+                <div style="overflow: hidden;">
+                    <p style="color: white; font-weight: var(--font-semibold); margin: 0; font-size: var(--text-sm);">
+                        Jane Doe</p>
+                    <p
+                        style="color: #94a3b8; font-size: var(--text-xs); margin: 0; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">
+                        jane.doe@example.com</p>
+                </div>
+            </div>
+            <a href="../index.html" class="sidebar-link" style="margin-top: var(--space-4); color: var(--error-color);">
+                <span>🚪 Logout</span>
+            </a>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <!-- Header -->
+            <header class="dashboard-header">
+                <div style="display: flex; align-items: center; gap: var(--space-6); flex: 1;">
+                    <div>
+                        <h2>My Orders</h2>
+                        <p class="text-light">Track and manage your purchases</p>
+                    </div>
+                </div>
+                <div style="display: flex; gap: var(--space-3);">
+                    <select class="form-control" style="width: auto;">
+                        <option>Last 3 months</option>
+                        <option>2025</option>
+                        <option>2024</option>
+                        <option>All time</option>
+                    </select>
+                </div>
+            </header>
+
+            <!-- Order Tabs -->
+            <div
+                style="display: flex; gap: var(--space-6); margin-bottom: var(--space-8); border-bottom: 1px solid var(--border-color);">
+                <button class="btn btn-ghost"
+                    style="border-bottom: 2px solid var(--customer-accent); border-radius: 0; color: var(--customer-accent); font-weight: var(--font-bold);">All
+                    Orders</button>
+                <button class="btn btn-ghost" style="border-radius: 0;">In Transit</button>
+                <button class="btn btn-ghost" style="border-radius: 0;">Cancelled</button>
+            </div>
+
+            <!-- Order 1 -->
+            <div class="order-card">
+                <div class="order-header">
+                    <div style="display: flex; gap: var(--space-8);">
+                        <div>
+                            <p
+                                style="font-size: var(--text-xs); color: var(--text-muted); text-transform: uppercase; margin-bottom: 2px;">
+                                Order Placed</p>
+                            <p style="font-size: var(--text-sm); font-weight: var(--font-bold);">Dec 24, 2025</p>
+                        </div>
+                        <div>
+                            <p
+                                style="font-size: var(--text-xs); color: var(--text-muted); text-transform: uppercase; margin-bottom: 2px;">
+                                Total</p>
+                            <p style="font-size: var(--text-sm); font-weight: var(--font-bold);">$12.99</p>
+                        </div>
+                        <div>
+                            <p
+                                style="font-size: var(--text-xs); color: var(--text-muted); text-transform: uppercase; margin-bottom: 2px;">
+                                Ship To</p>
+                            <p
+                                style="font-size: var(--text-sm); font-weight: var(--font-bold); color: var(--customer-accent); cursor: pointer;">
+                                Jane Doe ▾</p>
+                        </div>
+                    </div>
+                    <div>
+                        <p
+                            style="font-size: var(--text-xs); color: var(--text-muted); text-transform: uppercase; margin-bottom: 2px; text-align: right;">
+                            Order #ORD-101</p>
+                        <div style="display: flex; gap: var(--space-3); font-size: var(--text-sm);">
+                            <a href="#" style="color: var(--customer-accent); text-decoration: none;">View Details</a>
+                            <span style="color: var(--border-color);">|</span>
+                            <a href="#" style="color: var(--customer-accent); text-decoration: none;">Invoice</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="order-body">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: var(--space-6);">
+                        <h3 style="margin: 0; color: var(--success-color);">✓ Delivered Dec 25, 2025</h3>
+                        <p style="margin: 0; font-size: var(--text-sm); color: var(--text-muted);">Package was handed to
+                            resident</p>
+                    </div>
+                    <div class="order-item">
+                        <img src="../assets/book_cover_gatsby_1766747844476.png"
+                            style="width: 80px; height: 120px; object-fit: cover; border-radius: var(--radius-md);">
+                        <div style="flex: 1;">
+                            <h4 style="margin: 0 0 var(--space-1) 0; font-size: var(--text-lg);">The Great Gatsby</h4>
+                            <p
+                                style="margin: 0 0 var(--space-2) 0; font-size: var(--text-sm); color: var(--text-muted);">
+                                F. Scott Fitzgerald</p>
+                            <p
+                                style="margin: 0; font-size: var(--text-sm); font-weight: var(--font-bold); color: var(--customer-accent);">
+                                $12.99</p>
+                            <button class="btn btn-customer btn-sm" style="margin-top: var(--space-4);">Buy it
+                                again</button>
+                        </div>
+                        <div style="display: flex; flex-direction: column; gap: var(--space-2);">
+                            <button class="btn btn-outline btn-sm" style="width: 150px;">Track package</button>
+                            <button class="btn btn-outline btn-sm" style="width: 150px;">Return items</button>
+                            <button class="btn btn-outline btn-sm" style="width: 150px;">Write a review</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Order 2 -->
+            <div class="order-card">
+                <div class="order-header">
+                    <div style="display: flex; gap: var(--space-8);">
+                        <div>
+                            <p
+                                style="font-size: var(--text-xs); color: var(--text-muted); text-transform: uppercase; margin-bottom: 2px;">
+                                Order Placed</p>
+                            <p style="font-size: var(--text-sm); font-weight: var(--font-bold);">Dec 22, 2025</p>
+                        </div>
+                        <div>
+                            <p
+                                style="font-size: var(--text-xs); color: var(--text-muted); text-transform: uppercase; margin-bottom: 2px;">
+                                Total</p>
+                            <p style="font-size: var(--text-sm); font-weight: var(--font-bold);">$10.50</p>
+                        </div>
+                        <div>
+                            <p
+                                style="font-size: var(--text-xs); color: var(--text-muted); text-transform: uppercase; margin-bottom: 2px;">
+                                Ship To</p>
+                            <p
+                                style="font-size: var(--text-sm); font-weight: var(--font-bold); color: var(--customer-accent); cursor: pointer;">
+                                Jane Doe ▾</p>
+                        </div>
+                    </div>
+                    <div>
+                        <p
+                            style="font-size: var(--text-xs); color: var(--text-muted); text-transform: uppercase; margin-bottom: 2px; text-align: right;">
+                            Order #ORD-102</p>
+                        <div style="display: flex; gap: var(--space-3); font-size: var(--text-sm);">
+                            <a href="#" style="color: var(--customer-accent); text-decoration: none;">View Details</a>
+                            <span style="color: var(--border-color);">|</span>
+                            <a href="#" style="color: var(--customer-accent); text-decoration: none;">Invoice</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="order-body">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: var(--space-6);">
+                        <h3 style="margin: 0; color: var(--warning-color);">🚚 Arriving Today by 8 PM</h3>
+                        <p style="margin: 0; font-size: var(--text-sm); color: var(--text-muted);">Package is out for
+                            delivery</p>
+                    </div>
+                    <div class="order-item">
+                        <img src="../assets/book_cover_1984_1766747863529.png"
+                            style="width: 80px; height: 120px; object-fit: cover; border-radius: var(--radius-md);">
+                        <div style="flex: 1;">
+                            <h4 style="margin: 0 0 var(--space-1) 0; font-size: var(--text-lg);">1984</h4>
+                            <p
+                                style="margin: 0 0 var(--space-2) 0; font-size: var(--text-sm); color: var(--text-muted);">
+                                George Orwell</p>
+                            <p
+                                style="margin: 0; font-size: var(--text-sm); font-weight: var(--font-bold); color: var(--customer-accent);">
+                                $10.50</p>
+                        </div>
+                        <div style="display: flex; flex-direction: column; gap: var(--space-2);">
+                            <button class="btn btn-customer btn-sm" style="width: 150px;">Track package</button>
+                            <button class="btn btn-outline btn-sm" style="width: 150px;">Cancel order</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

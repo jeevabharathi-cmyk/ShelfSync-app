@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store Profile - ShelfSync</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <style>
+        :root {
+            --seller-accent: #f43f5e;
+            --seller-accent-light: rgba(244, 63, 94, 0.1);
+            --seller-gradient: linear-gradient(135deg, #f43f5e, #fb923c);
+        }
+
+        .sidebar-link.active {
+            border-left-color: var(--seller-accent) !important;
+            background: linear-gradient(90deg, rgba(244, 63, 94, 0.15), rgba(251, 146, 60, 0.05)) !important;
+            box-shadow: 0 4px 16px rgba(244, 63, 94, 0.2) !important;
+        }
+
+        .btn-seller {
+            background: var(--seller-gradient);
+            color: white;
+            border: none;
+        }
+
+        .btn-seller:hover {
+            box-shadow: 0 8px 20px rgba(244, 63, 94, 0.3);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="dashboard-sidebar">
+            <div class="logo">
+                <span>🛍️ Seller Portal</span>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="seller-dashboard.html" class="sidebar-link">
+                    <span>📊 Overview</span>
+                </a>
+                <a href="seller-inventory.html" class="sidebar-link">
+                    <span>📚 My Inventory</span>
+                </a>
+                <a href="seller-orders.html" class="sidebar-link">
+                    <span>📦 Orders</span>
+                </a>
+                <a href="seller-earnings.html" class="sidebar-link">
+                    <span>💰 Earnings</span>
+                </a>
+                <a href="seller-profile.html" class="sidebar-link active">
+                    <span>👤 Store Profile</span>
+                </a>
+                <a href="seller-settings.html" class="sidebar-link">
+                    <span>⚙️ Settings</span>
+                </a>
+            </nav>
+
+            <!-- Sidebar Profile -->
+            <div class="sidebar-profile"
+                style="margin-top: auto; padding: var(--space-4); background: rgba(255, 255, 255, 0.05); border-radius: var(--radius-lg); display: flex; align-items: center; gap: var(--space-3); border: 1px solid rgba(255, 255, 255, 0.1);">
+                <div
+                    style="width: 40px; height: 40px; background: var(--seller-gradient); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: var(--font-bold);">
+                    S
+                </div>
+                <div style="overflow: hidden;">
+                    <p style="color: white; font-weight: var(--font-semibold); margin: 0; font-size: var(--text-sm);">
+                        BookHaven Store</p>
+                    <p
+                        style="color: #94a3b8; font-size: var(--text-xs); margin: 0; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">
+                        contact@bookhaven.com</p>
+                </div>
+            </div>
+            <a href="../index.html" class="sidebar-link" style="margin-top: var(--space-4); color: var(--error-color);">
+                <span>🚪 Logout</span>
+            </a>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <!-- Header -->
+            <header class="dashboard-header">
+                <div style="display: flex; align-items: center; gap: var(--space-6); flex: 1;">
+                    <div>
+                        <h2>Store Profile</h2>
+                        <p class="text-light">Manage your public store presence</p>
+                    </div>
+                </div>
+                <button class="btn btn-seller hover-lift">💾 Save Profile</button>
+            </header>
+
+            <!-- Profile Content -->
+            <div style="display: flex; flex-direction: column; gap: var(--space-6);">
+
+                <!-- Store Identity Card -->
+                <div class="card hover-lift">
+                    <div class="card-body">
+                        <h3
+                            style="margin-bottom: var(--space-6); display: flex; align-items: center; gap: var(--space-2);">
+                            <span>🏪</span> Store Identity
+                        </h3>
+                        <div
+                            style="display: flex; align-items: flex-start; gap: var(--space-8); margin-bottom: var(--space-6);">
+                            <div style="position: relative;">
+                                <div
+                                    style="width: 120px; height: 120px; background: var(--seller-gradient); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; color: white; font-size: var(--text-5xl); font-weight: var(--font-bold); border: 4px solid white; box-shadow: var(--shadow-md);">
+                                    B</div>
+                                <button class="btn btn-seller btn-sm"
+                                    style="position: absolute; bottom: -10px; right: -10px; width: 36px; height: 36px; border-radius: 50%; padding: 0; display: flex; align-items: center; justify-content: center; border: 2px solid white;">📷</button>
+                            </div>
+                            <div style="flex: 1; display: grid; grid-template-columns: 1fr; gap: var(--space-4);">
+                                <div class="form-group">
+                                    <label class="form-label">Store Name</label>
+                                    <input type="text" class="form-control" value="BookHaven Store">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Store Tagline</label>
+                                    <input type="text" class="form-control" value="Premium bookseller since 2023">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Store Description</label>
+                                    <textarea class="form-control"
+                                        rows="4">BookHaven is your one-stop shop for rare finds, technical guides, and timeless classics. We pride ourselves on fast shipping and excellent customer service.</textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact & Social -->
+                <div class="card hover-lift">
+                    <div class="card-body">
+                        <h3
+                            style="margin-bottom: var(--space-6); display: flex; align-items: center; gap: var(--space-2);">
+                            <span>📞</span> Contact Information
+                        </h3>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-6);">
+                            <div class="form-group">
+                                <label class="form-label">Public Email</label>
+                                <input type="email" class="form-control" value="contact@bookhaven.com">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Phone Number</label>
+                                <input type="text" class="form-control" value="+1 (555) 123-4567">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Website</label>
+                                <input type="url" class="form-control" value="https://bookhaven.com">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Location</label>
+                                <input type="text" class="form-control" value="New York, USA">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

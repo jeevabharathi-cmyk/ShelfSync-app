@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Management - ShelfSync</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="dashboard-sidebar">
+            <div class="logo">
+                <span>⚡ Admin Portal</span>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="admin-dashboard.html" class="sidebar-link">
+                    <span>📊 Overview</span>
+                </a>
+                <a href="admin-users.html" class="sidebar-link">
+                    <span>👥 User Management</span>
+                </a>
+                <a href="admin-inventory.html" class="sidebar-link active">
+                    <span>📚 Inventory</span>
+                </a>
+                <a href="admin-reports.html" class="sidebar-link">
+                    <span>📈 Reports</span>
+                </a>
+                <a href="admin-settings.html" class="sidebar-link">
+                    <span>⚙️ Settings</span>
+                </a>
+            </nav>
+
+            <!-- Sidebar Profile -->
+            <div class="sidebar-profile"
+                style="margin-top: auto; padding: var(--space-4); background: rgba(255, 255, 255, 0.05); border-radius: var(--radius-lg); display: flex; align-items: center; gap: var(--space-3); border: 1px solid rgba(255, 255, 255, 0.1);">
+                <div
+                    style="width: 40px; height: 40px; background: linear-gradient(135deg, var(--primary-color), var(--accent-color)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: var(--font-bold);">
+                    A
+                </div>
+                <div style="overflow: hidden;">
+                    <p style="color: white; font-weight: var(--font-semibold); margin: 0; font-size: var(--text-sm);">
+                        Admin User</p>
+                    <p
+                        style="color: #94a3b8; font-size: var(--text-xs); margin: 0; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">
+                        admin@shelfsync.com</p>
+                </div>
+            </div>
+            <a href="../index.html" class="sidebar-link" style="margin-top: var(--space-4); color: var(--error-color);">
+                <span>🚪 Logout</span>
+            </a>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <!-- Header -->
+            <header class="dashboard-header">
+                <div style="display: flex; align-items: center; gap: var(--space-6); flex: 1;">
+                    <div>
+                        <h2>Inventory Management</h2>
+                        <p class="text-light">Manage all books in the system</p>
+                    </div>
+                    <!-- Search Bar -->
+                    <div class="header-search" style="flex: 1; max-width: 400px; position: relative;">
+                        <span
+                            style="position: absolute; left: var(--space-4); top: 50%; transform: translateY(-50%); color: var(--text-muted);">🔍</span>
+                        <input type="text" class="form-control" placeholder="Search books by title, author, ISBN..."
+                            style="padding-left: var(--space-10); background: rgba(255, 255, 255, 0.5); border-radius: var(--radius-full);">
+                    </div>
+                </div>
+                <div style="display: flex; align-items: center; gap: var(--space-3);">
+                    <button class="btn btn-outline hover-lift">📥 Export CSV</button>
+                    <button class="btn btn-primary hover-lift">+ Add Book</button>
+                </div>
+            </header>
+
+            <!-- Low Stock Alert Banner -->
+            <div class="card"
+                style="margin-bottom: var(--space-6); background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3);">
+                <div class="card-body"
+                    style="display: flex; align-items: center; gap: var(--space-4); padding: var(--space-4);">
+                    <span style="font-size: var(--text-2xl);">⚠️</span>
+                    <div style="flex: 1;">
+                        <p style="font-weight: var(--font-bold); margin: 0; color: var(--accent-color);">Low Stock Alert
+                        </p>
+                        <p style="font-size: var(--text-sm); margin: 0; color: var(--text-secondary);">There are 12
+                            items currently below the minimum stock threshold.</p>
+                    </div>
+                    <button class="btn btn-accent btn-sm">Review Items</button>
+                </div>
+            </div>
+
+            <!-- Stats -->
+            <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-4); margin-bottom: var(--space-6);">
+                <div class="card hover-lift">
+                    <div class="card-body">
+                        <p class="text-light" style="font-size: var(--text-sm); margin-bottom: var(--space-2);">Total
+                            Books</p>
+                        <h3 style="color: var(--primary-color); font-size: var(--text-3xl); margin: 0;">8,500</h3>
+                    </div>
+                </div>
+                <div class="card hover-lift">
+                    <div class="card-body">
+                        <p class="text-light" style="font-size: var(--text-sm); margin-bottom: var(--space-2);">In Stock
+                        </p>
+                        <h3 style="color: var(--success-color); font-size: var(--text-3xl); margin: 0;">7,240</h3>
+                    </div>
+                </div>
+                <div class="card hover-lift">
+                    <div class="card-body">
+                        <p class="text-light" style="font-size: var(--text-sm); margin-bottom: var(--space-2);">Low
+                            Stock</p>
+                        <h3 style="color: var(--warning-color); font-size: var(--text-3xl); margin: 0;">1,260</h3>
+                    </div>
+                </div>
+                <div class="card hover-lift">
+                    <div class="card-body">
+                        <p class="text-light" style="font-size: var(--text-sm); margin-bottom: var(--space-2);">Out of
+                            Stock</p>
+                        <h3 style="color: var(--error-color); font-size: var(--text-3xl); margin: 0;">45</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Filters -->
+            <div class="card" style="margin-bottom: var(--space-6);">
+                <div class="card-body" style="display: flex; gap: var(--space-4); align-items: flex-end;">
+                    <div class="form-group" style="margin: 0; flex: 1;">
+                        <label class="form-label">Category</label>
+                        <select class="form-control">
+                            <option>All Categories</option>
+                            <option>Fiction</option>
+                            <option>Non-Fiction</option>
+                            <option>Science & Tech</option>
+                        </select>
+                    </div>
+                    <div class="form-group" style="margin: 0; flex: 1;">
+                        <label class="form-label">Stock Status</label>
+                        <select class="form-control">
+                            <option>All Status</option>
+                            <option>In Stock</option>
+                            <option>Low Stock</option>
+                            <option>Out of Stock</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-outline hover-lift">Clear Filters</button>
+                </div>
+            </div>
+
+            <!-- Inventory Table -->
+            <div class="table-container hover-lift">
+                <table>
+                    <thead>
+                        <tr>
+                            <th><input type="checkbox"></th>
+                            <th>Book</th>
+                            <th>Author</th>
+                            <th>Category</th>
+                            <th>Price</th>
+                            <th>Stock</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>
+                                <div style="display: flex; align-items: center; gap: var(--space-3);">
+                                    <img src="../assets/book_cover_gatsby_1766747844476.png" alt="Book"
+                                        style="width: 40px; height: 60px; object-fit: cover; border-radius: var(--radius-sm); box-shadow: var(--shadow-sm);">
+                                    <span style="font-weight: var(--font-medium);">The Great Gatsby</span>
+                                </div>
+                            </td>
+                            <td>F. Scott Fitzgerald</td>
+                            <td><span class="badge badge-primary">Fiction</span></td>
+                            <td style="font-weight: var(--font-semibold);">$12.99</td>
+                            <td>245</td>
+                            <td><span class="badge badge-success">✓ In Stock</span></td>
+                            <td>
+                                <div style="display: flex; gap: var(--space-2);">
+                                    <button class="btn btn-outline btn-sm">Edit</button>
+                                    <button class="btn btn-ghost btn-sm">Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>
+                                <div style="display: flex; align-items: center; gap: var(--space-3);">
+                                    <img src="../assets/book_cover_1984_1766747863529.png" alt="Book"
+                                        style="width: 40px; height: 60px; object-fit: cover; border-radius: var(--radius-sm); box-shadow: var(--shadow-sm);">
+                                    <span style="font-weight: var(--font-medium);">1984</span>
+                                </div>
+                            </td>
+                            <td>George Orwell</td>
+                            <td><span class="badge badge-primary">Fiction</span></td>
+                            <td style="font-weight: var(--font-semibold);">$10.50</td>
+                            <td>12</td>
+                            <td><span class="badge badge-warning">⚠ Low Stock</span></td>
+                            <td>
+                                <div style="display: flex; gap: var(--space-2);">
+                                    <button class="btn btn-outline btn-sm">Edit</button>
+                                    <button class="btn btn-ghost btn-sm">Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Pagination -->
+            <div class="flex-between" style="margin-top: var(--space-6);">
+                <p class="text-light">Showing 1-4 of 8,500 books</p>
+                <div class="flex-center" style="gap: var(--space-2);">
+                    <button class="btn btn-ghost btn-sm" disabled>← Prev</button>
+                    <button class="btn btn-primary btn-sm">1</button>
+                    <button class="btn btn-outline btn-sm">2</button>
+                    <button class="btn btn-outline btn-sm">Next →</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+</body>
+
+</html>

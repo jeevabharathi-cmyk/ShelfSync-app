@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seller Settings - ShelfSync</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <style>
+        :root {
+            --seller-accent: #f43f5e;
+            --seller-accent-light: rgba(244, 63, 94, 0.1);
+            --seller-gradient: linear-gradient(135deg, #f43f5e, #fb923c);
+        }
+
+        .sidebar-link.active {
+            border-left-color: var(--seller-accent) !important;
+            background: linear-gradient(90deg, rgba(244, 63, 94, 0.15), rgba(251, 146, 60, 0.05)) !important;
+            box-shadow: 0 4px 16px rgba(244, 63, 94, 0.2) !important;
+        }
+
+        .btn-seller {
+            background: var(--seller-gradient);
+            color: white;
+            border: none;
+        }
+
+        .btn-seller:hover {
+            box-shadow: 0 8px 20px rgba(244, 63, 94, 0.3);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="dashboard-sidebar">
+            <div class="logo">
+                <span>🛍️ Seller Portal</span>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="seller-dashboard.html" class="sidebar-link">
+                    <span>📊 Overview</span>
+                </a>
+                <a href="seller-inventory.html" class="sidebar-link">
+                    <span>📚 My Inventory</span>
+                </a>
+                <a href="seller-orders.html" class="sidebar-link">
+                    <span>📦 Orders</span>
+                </a>
+                <a href="seller-earnings.html" class="sidebar-link">
+                    <span>💰 Earnings</span>
+                </a>
+                <a href="seller-profile.html" class="sidebar-link">
+                    <span>👤 Store Profile</span>
+                </a>
+                <a href="seller-settings.html" class="sidebar-link active">
+                    <span>⚙️ Settings</span>
+                </a>
+            </nav>
+
+            <!-- Sidebar Profile -->
+            <div class="sidebar-profile"
+                style="margin-top: auto; padding: var(--space-4); background: rgba(255, 255, 255, 0.05); border-radius: var(--radius-lg); display: flex; align-items: center; gap: var(--space-3); border: 1px solid rgba(255, 255, 255, 0.1);">
+                <div
+                    style="width: 40px; height: 40px; background: var(--seller-gradient); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: var(--font-bold);">
+                    S
+                </div>
+                <div style="overflow: hidden;">
+                    <p style="color: white; font-weight: var(--font-semibold); margin: 0; font-size: var(--text-sm);">
+                        BookHaven Store</p>
+                    <p
+                        style="color: #94a3b8; font-size: var(--text-xs); margin: 0; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">
+                        contact@bookhaven.com</p>
+                </div>
+            </div>
+            <a href="../index.html" class="sidebar-link" style="margin-top: var(--space-4); color: var(--error-color);">
+                <span>🚪 Logout</span>
+            </a>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <!-- Header -->
+            <header class="dashboard-header">
+                <div style="display: flex; align-items: center; gap: var(--space-6); flex: 1;">
+                    <div>
+                        <h2>Seller Settings</h2>
+                        <p class="text-light">Configure your seller account preferences</p>
+                    </div>
+                </div>
+                <button class="btn btn-seller hover-lift">💾 Save All Changes</button>
+            </header>
+
+            <!-- Settings Sections -->
+            <div style="display: flex; flex-direction: column; gap: var(--space-6);">
+
+                <!-- Notification Preferences -->
+                <div class="card hover-lift">
+                    <div class="card-body">
+                        <h3
+                            style="margin-bottom: var(--space-6); display: flex; align-items: center; gap: var(--space-2);">
+                            <span>🔔</span> Notification Preferences
+                        </h3>
+                        <div style="display: flex; flex-direction: column; gap: var(--space-4);">
+                            <label
+                                style="display: flex; align-items: center; justify-content: space-between; padding: var(--space-4); background: var(--background-color); border-radius: var(--radius-lg); cursor: pointer; border: 1px solid var(--border-color);">
+                                <div>
+                                    <p style="font-weight: var(--font-bold); margin: 0;">New Order Alerts</p>
+                                    <p class="text-light" style="font-size: var(--text-sm); margin: 0;">Get notified
+                                        immediately when a customer places an order</p>
+                                </div>
+                                <input type="checkbox" checked style="width: 20px; height: 20px;">
+                            </label>
+                            <label
+                                style="display: flex; align-items: center; justify-content: space-between; padding: var(--space-4); background: var(--background-color); border-radius: var(--radius-lg); cursor: pointer; border: 1px solid var(--border-color);">
+                                <div>
+                                    <p style="font-weight: var(--font-bold); margin: 0;">Low Stock Warnings</p>
+                                    <p class="text-light" style="font-size: var(--text-sm); margin: 0;">Alert when
+                                        inventory levels drop below your threshold</p>
+                                </div>
+                                <input type="checkbox" checked style="width: 20px; height: 20px;">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Business & Payouts -->
+                <div class="card hover-lift">
+                    <div class="card-body">
+                        <h3
+                            style="margin-bottom: var(--space-6); display: flex; align-items: center; gap: var(--space-2);">
+                            <span>💳</span> Business & Payouts
+                        </h3>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-6);">
+                            <div class="form-group">
+                                <label class="form-label">Payout Method</label>
+                                <select class="form-control">
+                                    <option>Bank Transfer (ACH)</option>
+                                    <option>PayPal</option>
+                                    <option>Stripe Connect</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Tax ID / VAT Number</label>
+                                <input type="text" class="form-control" placeholder="XX-XXXXXXX">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Security -->
+                <div class="card hover-lift">
+                    <div class="card-body">
+                        <h3
+                            style="margin-bottom: var(--space-6); display: flex; align-items: center; gap: var(--space-2);">
+                            <span>🛡️</span> Security
+                        </h3>
+                        <div style="display: flex; flex-direction: column; gap: var(--space-4);">
+                            <button class="btn btn-outline" style="width: fit-content;">Change Password</button>
+                            <label
+                                style="display: flex; align-items: center; justify-content: space-between; padding: var(--space-4); background: var(--background-color); border-radius: var(--radius-lg); cursor: pointer; border: 1px solid var(--border-color);">
+                                <div>
+                                    <p style="font-weight: var(--font-bold); margin: 0;">Two-Factor Authentication</p>
+                                    <p class="text-light" style="font-size: var(--text-sm); margin: 0;">Add an extra
+                                        layer of security to your account</p>
+                                </div>
+                                <button class="btn btn-seller btn-sm">Enable</button>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

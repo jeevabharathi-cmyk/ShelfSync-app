@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delivery Dashboard - ShelfSync</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <style>
+        :root {
+            --delivery-accent: #10b981;
+            --delivery-accent-light: rgba(16, 185, 129, 0.1);
+            --delivery-gradient: linear-gradient(135deg, #10b981, #059669);
+        }
+
+        .sidebar-link.active {
+            border-left-color: var(--delivery-accent) !important;
+            background: linear-gradient(90deg, rgba(16, 185, 129, 0.15), rgba(5, 150, 105, 0.05)) !important;
+            box-shadow: 0 4px 16px rgba(16, 185, 129, 0.2) !important;
+        }
+
+        .btn-delivery {
+            background: var(--delivery-gradient);
+            color: white;
+            border: none;
+        }
+
+        .btn-delivery:hover {
+            box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .route-card {
+            border-left: 4px solid var(--delivery-accent);
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: var(--space-4);
+            margin-bottom: var(--space-4);
+            display: flex;
+            align-items: center;
+            gap: var(--space-6);
+            transition: all var(--transition-fast);
+            border-top: 1px solid var(--border-color);
+            border-right: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .route-card:hover {
+            transform: translateX(8px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .status-online {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-2);
+            padding: var(--space-1) var(--space-3);
+            background: var(--delivery-accent-light);
+            color: var(--delivery-accent);
+            border-radius: var(--radius-full);
+            font-size: var(--text-xs);
+            font-weight: var(--font-bold);
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--delivery-accent);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--delivery-accent);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(1.5);
+                opacity: 0.5;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="dashboard-sidebar">
+            <div class="logo">
+                <span>🚚 Delivery Portal</span>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="delivery-dashboard.html" class="sidebar-link active">
+                    <span>🗺️ My Route</span>
+                </a>
+                <a href="delivery-history.html" class="sidebar-link">
+                    <span>📜 History</span>
+                </a>
+                <a href="delivery-earnings.html" class="sidebar-link">
+                    <span>💰 Earnings</span>
+                </a>
+                <a href="delivery-settings.html" class="sidebar-link">
+                    <span>⚙️ Settings</span>
+                </a>
+            </nav>
+
+            <!-- Sidebar Profile -->
+            <div class="sidebar-profile"
+                style="margin-top: auto; padding: var(--space-4); background: rgba(255, 255, 255, 0.05); border-radius: var(--radius-lg); display: flex; align-items: center; gap: var(--space-3); border: 1px solid rgba(255, 255, 255, 0.1);">
+                <div
+                    style="width: 40px; height: 40px; background: var(--delivery-gradient); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: var(--font-bold);">
+                    DP
+                </div>
+                <div style="overflow: hidden;">
+                    <p style="color: white; font-weight: var(--font-semibold); margin: 0; font-size: var(--text-sm);">
+                        Dave Partner</p>
+                    <p
+                        style="color: #94a3b8; font-size: var(--text-xs); margin: 0; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">
+                        dave.p@shelf-sync.com</p>
+                </div>
+            </div>
+            <a href="../index.html" class="sidebar-link" style="margin-top: var(--space-4); color: var(--error-color);">
+                <span>🚪 Logout</span>
+            </a>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <!-- Header -->
+            <header class="dashboard-header">
+                <div style="display: flex; align-items: center; gap: var(--space-6); flex: 1;">
+                    <div>
+                        <h2>Assigned Deliveries</h2>
+                        <p class="text-light">You have 5 deliveries scheduled for today</p>
+                    </div>
+                </div>
+                <div style="display: flex; align-items: center; gap: var(--space-4);">
+                    <div class="status-online">
+                        <span class="status-dot"></span>
+                        Online & Active
+                    </div>
+                    <button class="btn btn-ghost" style="position: relative; padding: var(--space-2);">
+                        <span>🔔</span>
+                        <span
+                            style="position: absolute; top: 0; right: 0; width: 8px; height: 8px; background: var(--error-color); border-radius: 50%;"></span>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Stats Grid -->
+            <div class="stats-grid" style="margin-bottom: var(--space-8);">
+                <div class="stat-card hover-lift">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                        <div>
+                            <p class="text-light" style="font-size: var(--text-sm); margin-bottom: var(--space-1);">
+                                Pending</p>
+                            <h3 style="font-size: var(--text-3xl); margin: 0;">5</h3>
+                        </div>
+                        <span style="font-size: var(--text-2xl);">📦</span>
+                    </div>
+                    <p style="margin-top: var(--space-3); font-size: var(--text-xs); color: var(--warning-color);">3
+                        priority orders</p>
+                </div>
+                <div class="stat-card hover-lift">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                        <div>
+                            <p class="text-light" style="font-size: var(--text-sm); margin-bottom: var(--space-1);">
+                                Today's Earnings</p>
+                            <h3 style="font-size: var(--text-3xl); margin: 0;">$120.50</h3>
+                        </div>
+                        <span style="font-size: var(--text-2xl);">💰</span>
+                    </div>
+                    <p style="margin-top: var(--space-3); font-size: var(--text-xs); color: var(--delivery-accent);">
+                        +$15.00 tips</p>
+                </div>
+                <div class="stat-card hover-lift">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                        <div>
+                            <p class="text-light" style="font-size: var(--text-sm); margin-bottom: var(--space-1);">
+                                Success Rate</p>
+                            <h3 style="font-size: var(--text-3xl); margin: 0;">98%</h3>
+                        </div>
+                        <span style="font-size: var(--text-2xl);">⭐</span>
+                    </div>
+                    <p style="margin-top: var(--space-3); font-size: var(--text-xs); color: var(--text-muted);">Last 30
+                        days</p>
+                </div>
+                <div class="stat-card hover-lift">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                        <div>
+                            <p class="text-light" style="font-size: var(--text-sm); margin-bottom: var(--space-1);">
+                                Total Distance</p>
+                            <h3 style="font-size: var(--text-3xl); margin: 0;">42 km</h3>
+                        </div>
+                        <span style="font-size: var(--text-2xl);">🛣️</span>
+                    </div>
+                    <p style="margin-top: var(--space-3); font-size: var(--text-xs); color: var(--text-muted);">Est. for
+                        today</p>
+                </div>
+            </div>
+
+            <!-- Route List -->
+            <div class="flex-between" style="margin-bottom: var(--space-6);">
+                <h3 style="margin: 0;">Today's Route</h3>
+                <button class="btn btn-delivery btn-sm">Optimize Route</button>
+            </div>
+
+            <div class="route-list">
+                <!-- Route 1 -->
+                <div class="route-card">
+                    <div
+                        style="width: 60px; height: 60px; background: var(--delivery-accent-light); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; font-size: var(--text-2xl);">
+                        📍</div>
+                    <div style="flex: 1;">
+                        <div class="flex-between" style="margin-bottom: var(--space-1);">
+                            <h4 style="margin: 0;">123 Main St, Springfield</h4>
+                            <span class="badge badge-warning">On the way</span>
+                        </div>
+                        <p style="margin: 0; font-size: var(--text-sm); color: var(--text-muted);">Pickup: BookHaven
+                            Store • Est. 2:00 PM</p>
+                        <p
+                            style="margin: var(--space-2) 0 0 0; font-size: var(--text-xs); font-weight: var(--font-bold); color: var(--delivery-accent);">
+                            Order #ORD-002 • 2 Items</p>
+                    </div>
+                    <div style="display: flex; gap: var(--space-2);">
+                        <button class="btn btn-delivery btn-sm">Mark Delivered</button>
+                        <button class="btn btn-outline btn-sm">Call</button>
+                    </div>
+                </div>
+
+                <!-- Route 2 -->
+                <div class="route-card" style="border-left-color: #94a3b8;">
+                    <div
+                        style="width: 60px; height: 60px; background: #f1f5f9; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; font-size: var(--text-2xl);">
+                        📦</div>
+                    <div style="flex: 1;">
+                        <div class="flex-between" style="margin-bottom: var(--space-1);">
+                            <h4 style="margin: 0;">456 Oak Ave, Springfield</h4>
+                            <span class="badge" style="background: #f1f5f9; color: #64748b;">Pending Pickup</span>
+                        </div>
+                        <p style="margin: 0; font-size: var(--text-sm); color: var(--text-muted);">Pickup: City Books •
+                            Est. 3:30 PM</p>
+                        <p
+                            style="margin: var(--space-2) 0 0 0; font-size: var(--text-xs); font-weight: var(--font-bold); color: #64748b;">
+                            Order #ORD-005 • 1 Item</p>
+                    </div>
+                    <div style="display: flex; gap: var(--space-2);">
+                        <button class="btn btn-outline btn-sm">Start Trip</button>
+                    </div>
+                </div>
+
+                <!-- Route 3 -->
+                <div class="route-card" style="border-left-color: #94a3b8;">
+                    <div
+                        style="width: 60px; height: 60px; background: #f1f5f9; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; font-size: var(--text-2xl);">
+                        📦</div>
+                    <div style="flex: 1;">
+                        <div class="flex-between" style="margin-bottom: var(--space-1);">
+                            <h4 style="margin: 0;">789 Pine Ln, Springfield</h4>
+                            <span class="badge" style="background: #f1f5f9; color: #64748b;">Pending Pickup</span>
+                        </div>
+                        <p style="margin: 0; font-size: var(--text-sm); color: var(--text-muted);">Pickup: BookHaven
+                            Store • Est. 4:15 PM</p>
+                        <p
+                            style="margin: var(--space-2) 0 0 0; font-size: var(--text-xs); font-weight: var(--font-bold); color: #64748b;">
+                            Order #ORD-008 • 3 Items</p>
+                    </div>
+                    <div style="display: flex; gap: var(--space-2);">
+                        <button class="btn btn-outline btn-sm">Start Trip</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Map Placeholder -->
+            <div class="card"
+                style="margin-top: var(--space-8); height: 300px; background: #e2e8f0; display: flex; align-items: center; justify-content: center; border-radius: var(--radius-xl); overflow: hidden; position: relative;">
+                <div style="text-align: center; z-index: 1;">
+                    <span style="font-size: 48px;">🗺️</span>
+                    <h4 style="margin-top: var(--space-4);">Interactive Route Map</h4>
+                    <p class="text-light">Live tracking and navigation enabled</p>
+                </div>
+                <!-- Simple CSS Map Pattern -->
+                <div
+                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.1; background-image: radial-gradient(#000 1px, transparent 1px); background-size: 20px 20px;">
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShelfSync - Buy & Sell Books</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <span>📚 ShelfSync</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="pages/all-books.html" class="nav-link">Browse Books</a></li>
+                <li><a href="pages/login-customer.html" class="btn btn-ghost btn-sm">Login</a></li>
+                <li><a href="pages/signup.html" class="btn btn-primary btn-sm">Sign Up</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container">
+            <h1 class="animate-fade-in-up">Your Next Favorite Book Awaits</h1>
+            <p class="animate-fade-in-up">Discover a world of stories, knowledge, and adventure. ShelfSync connects you
+                with the best books from
+                trusted sellers worldwide.</p>
+            <div style="display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap; margin-top: var(--space-8);"
+                class="animate-fade-in-up">
+                <a href="pages/all-books.html" class="btn btn-lg hover-lift"
+                    style="background-color: white; color: var(--primary-color); box-shadow: var(--shadow-lg);">
+                    📚 Browse Collection
+                </a>
+                <a href="pages/signup.html" class="btn btn-lg btn-outline hover-lift"
+                    style="background-color: rgba(255,255,255,0.15); color: white; border: 2px solid rgba(255,255,255,0.5); backdrop-filter: blur(10px);">
+                    🚀 Join Now
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Featured Books Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">📖 Trending Now</h2>
+                <p class="section-subtitle">Top picks for this week - handpicked by our community</p>
+            </div>
+
+            <div class="grid grid-4">
+                <!-- Book Card 1 - The Great Gatsby -->
+                <div class="card hover-lift">
+                    <img src="assets/book_cover_gatsby_1766747844476.png" alt="The Great Gatsby"
+                        style="width: 100%; height: 350px; object-fit: cover;">
+                    <div class="card-body">
+                        <h3 class="card-title">The Great Gatsby</h3>
+                        <p class="card-subtitle">F. Scott Fitzgerald</p>
+                        <div class="flex-between" style="margin-top: var(--space-4);">
+                            <span
+                                style="font-weight: var(--font-bold); font-size: var(--text-xl); color: var(--primary-color);">$12.99</span>
+                            <span class="badge badge-success">✓ In Stock</span>
+                        </div>
+                        <a href="pages/book-details.html" class="btn btn-primary btn-block"
+                            style="margin-top: var(--space-4);">View Details</a>
+                    </div>
+                </div>
+
+                <!-- Book Card 2 - 1984 -->
+                <div class="card hover-lift">
+                    <img src="assets/book_cover_1984_1766747863529.png" alt="1984"
+                        style="width: 100%; height: 350px; object-fit: cover;">
+                    <div class="card-body">
+                        <h3 class="card-title">1984</h3>
+                        <p class="card-subtitle">George Orwell</p>
+                        <div class="flex-between" style="margin-top: var(--space-4);">
+                            <span
+                                style="font-weight: var(--font-bold); font-size: var(--text-xl); color: var(--primary-color);">$10.50</span>
+                            <span class="badge badge-warning">⚠ Low Stock</span>
+                        </div>
+                        <a href="pages/book-details.html" class="btn btn-primary btn-block"
+                            style="margin-top: var(--space-4);">View Details</a>
+                    </div>
+                </div>
+
+                <!-- Book Card 3 - Clean Code -->
+                <div class="card hover-lift">
+                    <img src="assets/book_cover_clean_code_1766747885406.png" alt="Clean Code"
+                        style="width: 100%; height: 350px; object-fit: cover;">
+                    <div class="card-body">
+                        <h3 class="card-title">Clean Code</h3>
+                        <p class="card-subtitle">Robert C. Martin</p>
+                        <div class="flex-between" style="margin-top: var(--space-4);">
+                            <span
+                                style="font-weight: var(--font-bold); font-size: var(--text-xl); color: var(--primary-color);">$35.00</span>
+                            <span class="badge badge-success">✓ In Stock</span>
+                        </div>
+                        <a href="pages/book-details.html" class="btn btn-primary btn-block"
+                            style="margin-top: var(--space-4);">View Details</a>
+                    </div>
+                </div>
+
+                <!-- Book Card 4 - Design Patterns -->
+                <div class="card hover-lift">
+                    <img src="assets/book_cover_design_patterns_1766747902292.png" alt="Design Patterns"
+                        style="width: 100%; height: 350px; object-fit: cover;">
+                    <div class="card-body">
+                        <h3 class="card-title">Design Patterns</h3>
+                        <p class="card-subtitle">Gang of Four</p>
+                        <div class="flex-between" style="margin-top: var(--space-4);">
+                            <span
+                                style="font-weight: var(--font-bold); font-size: var(--text-xl); color: var(--primary-color);">$42.00</span>
+                            <span class="badge badge-success">✓ In Stock</span>
+                        </div>
+                        <a href="pages/book-details.html" class="btn btn-primary btn-block"
+                            style="margin-top: var(--space-4);">View Details</a>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: var(--space-12);">
+                <a href="pages/all-books.html" class="btn btn-lg btn-outline hover-lift">
+                    View All Books →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section" style="background-color: white;">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">✨ Why Choose ShelfSync?</h2>
+                <p class="section-subtitle">The best platform for book lovers and sellers</p>
+            </div>
+
+            <div class="grid grid-3">
+                <div class="feature-card">
+                    <div class="features-icon">🚀</div>
+                    <h3>Fast Delivery</h3>
+                    <p>Get your books delivered to your doorstep in record time with our dedicated delivery partners.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="features-icon">🛡️</div>
+                    <h3>Secure Payments</h3>
+                    <p>Experience hassle-free and secure transactions for every purchase you make on our platform.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="features-icon">📚</div>
+                    <h3>Huge Collection</h3>
+                    <p>Browse through thousands of titles across various genres, categories, and languages.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="section" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+        <div class="container">
+            <div class="grid grid-4">
+                <div style="text-align: center;">
+                    <h3
+                        style="font-size: var(--text-4xl); font-weight: var(--font-extrabold); color: white; margin-bottom: var(--space-2);">
+                        10K+</h3>
+                    <p style="color: rgba(255,255,255,0.9); font-size: var(--text-lg);">Happy Readers</p>
+                </div>
+                <div style="text-align: center;">
+                    <h3
+                        style="font-size: var(--text-4xl); font-weight: var(--font-extrabold); color: white; margin-bottom: var(--space-2);">
+                        50K+</h3>
+                    <p style="color: rgba(255,255,255,0.9); font-size: var(--text-lg);">Books Available</p>
+                </div>
+                <div style="text-align: center;">
+                    <h3
+                        style="font-size: var(--text-4xl); font-weight: var(--font-extrabold); color: white; margin-bottom: var(--space-2);">
+                        500+</h3>
+                    <p style="color: rgba(255,255,255,0.9); font-size: var(--text-lg);">Trusted Sellers</p>
+                </div>
+                <div style="text-align: center;">
+                    <h3
+                        style="font-size: var(--text-4xl); font-weight: var(--font-extrabold); color: white; margin-bottom: var(--space-2);">
+                        4.8★</h3>
+                    <p style="color: rgba(255,255,255,0.9); font-size: var(--text-lg);">Average Rating</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>📚 ShelfSync</h4>
+                    <p>Connecting readers with their next favorite story. The smart way to buy and sell books online.
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="pages/all-books.html">Browse Books</a></li>
+                        <li><a href="pages/login-customer.html">Login</a></li>
+                        <li><a href="pages/signup.html">Sign Up</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>For Sellers</h4>
+                    <ul class="footer-links">
+                        <li><a href="pages/login-seller.html">Seller Login</a></li>
+                        <li><a href="pages/signup.html">Become a Seller</a></li>
+                        <li><a href="#">Seller Guidelines</a></li>
+                        <li><a href="pages/login-admin.html">Admin Portal</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 ShelfSync. All rights reserved. Made with ❤️ for book lovers.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

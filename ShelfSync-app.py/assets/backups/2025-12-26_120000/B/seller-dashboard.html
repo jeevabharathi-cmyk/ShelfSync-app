@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShelfSync - Seller Dashboard (B - inline charts)</title>
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/seller-dashboard.css">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <aside class="dashboard-sidebar seller-theme">
+            <div class="logo">
+                <span>📚 Seller Portal</span>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="seller-dashboard.html" class="sidebar-link active">
+                    <span>Overview</span>
+                </a>
+                <a href="inventory.html" class="sidebar-link">
+                    <span>My Inventory</span>
+                </a>
+                <a href="#" class="sidebar-link">
+                    <span>Orders</span>
+                </a>
+                <a href="#" class="sidebar-link">
+                    <span>Earnings</span>
+                </a>
+                <a href="#" class="sidebar-link">
+                    <span>Settings</span>
+                </a>
+                <a href="../index.html" class="sidebar-link" style="margin-top: auto; color: var(--error-color);">
+                    <span>Logout</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <header class="dashboard-header">
+                <h2>Seller Dashboard</h2>
+                <div style="display: flex; align-items: center; gap: var(--spacing-md);">
+                    <button class="btn btn-primary" style="background-color: var(--accent-color);">+ Add New
+                        Book</button>
+                    <div
+                        style="width: 40px; height: 40px; background-color: var(--accent-color); border-radius: 50%; color: white; display: flex; align-items: center; justify-content: center;">
+                        S</div>
+                </div>
+            </header>
+
+            <!-- Stats -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3 class="seller-accent">$1,250</h3>
+                    <p>Total Sales</p>
+                </div>
+                <div class="stat-card">
+                    <h3 class="seller-accent">45</h3>
+                    <p>Books Sold</p>
+                </div>
+                <div class="stat-card">
+                    <h3 class="seller-accent">12</h3>
+                    <p>Active Listings</p>
+                </div>
+                <div class="stat-card">
+                    <h3 class="seller-accent">4.9</h3>
+                    <p>Seller Rating</p>
+                </div>
+            </div>
+
+            <!-- Charts -->
+            <div style="display:flex; gap:1rem; margin-top:var(--spacing-md); flex-wrap:wrap;">
+                <div style="flex:1 1 320px; background:var(--surface-color); padding:1rem; border-radius:8px; box-shadow:var(--shadow-sm);">
+                    <h4 style="margin:0 0 .5rem 0;">Sales (last 7 days)</h4>
+                    <canvas id="sellerSalesChart" style="width:100%; height:140px;"></canvas>
+                </div>
+                <div style="flex:1 1 320px; background:var(--surface-color); padding:1rem; border-radius:8px; box-shadow:var(--shadow-sm);">
+                    <h4 style="margin:0 0 .5rem 0;">Top Selling Books</h4>
+                    <canvas id="sellerTopChart" style="width:100%; height:140px;"></canvas>
+                </div>
+            </div>
+
+            <!-- Recent Orders -->
+            <h3 style="margin-bottom: var(--spacing-md);">Recent Orders</h3>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Book</th>
+                            <th>Customer</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#ORD-001</td>
+                            <td>The Great Gatsby</td>
+                            <td>Alice Johnson</td>
+                            <td>Today</td>
+                            <td><span class="badge badge-warning">Pending</span></td>
+                            <td><button class="btn btn-primary"
+                                    style="padding: 0.25rem 0.5rem; font-size: 0.75rem;">Ship</button></td>
+                        </tr>
+                        <tr>
+                            <td>#ORD-002</td>
+                            <td>1984</td>
+                            <td>Bob Smith</td>
+                            <td>Yesterday</td>
+                            <td><span class="badge badge-success">Shipped</span></td>
+                            <td><button class="btn btn-outline"
+                                    style="padding: 0.25rem 0.5rem; font-size: 0.75rem;">Track</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+</body>
+
+</html>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+(() => {
+    try {
+        const accent = '#F59E0B';
+        const primary = '#4F46E5';
+
+        const sCtx = document.getElementById('sellerSalesChart');
+        if (sCtx) {
+            new Chart(sCtx.getContext('2d'), {
+                type: 'line',
+                data: {labels:['Mon','Tue','Wed','Thu','Fri','Sat','Sun'], datasets:[{label:'Sales', data:[3,6,5,9,11,7,13], borderColor:primary, backgroundColor:'rgba(79,70,229,0.06)', fill:true, tension:0.3}]},
+                options:{responsive:true, maintainAspectRatio:false, plugins:{legend:{display:false}}}
+            });
+        }
+
+        const tCtx = document.getElementById('sellerTopChart');
+        if (tCtx) {
+            new Chart(tCtx.getContext('2d'), {
+                type: 'bar',
+                data: {labels:['Gatsby','1984','Sapiens','Atomic Habits'], datasets:[{label:'Copies', data:[12,9,7,5], backgroundColor:accent}]},
+                options:{responsive:true, maintainAspectRatio:false, plugins:{legend:{display:false}}}
+            });
+        }
+    } catch(e){ console.warn('Chart init failed', e); }
+})();
+</script>

@@ -1,0 +1,20 @@
+/* Note: .auth-container and .auth-links are shared, but specific overrides might exist or be merged */
+.role-switcher {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.role-switcher a {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-md);
+    font-size: var(--small-size);
+    color: var(--text-light);
+}
+
+.role-switcher a.active {
+    background-color: rgba(37, 99, 235, 0.1);
+    color: var(--primary-color);
+    font-weight: 600;
+}

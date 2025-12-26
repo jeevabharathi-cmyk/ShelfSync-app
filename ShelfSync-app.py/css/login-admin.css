@@ -1,0 +1,10 @@
+/* Specific override for admin login container */
+.auth-container.admin-login {
+    border-top: 4px solid var(--secondary-color);
+}
+
+/* Admin specific role switcher active state */
+.role-switcher a.active.admin {
+    background-color: rgba(30, 41, 59, 0.1);
+    color: var(--secondary-color);
+}

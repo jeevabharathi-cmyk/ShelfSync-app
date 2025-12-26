@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Dashboard - ShelfSync</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <style>
+        :root {
+            --customer-accent: #4f46e5;
+            --customer-accent-light: rgba(79, 70, 229, 0.1);
+            --customer-gradient: linear-gradient(135deg, #4f46e5, #3b82f6);
+        }
+
+        .sidebar-link.active {
+            border-left-color: var(--customer-accent) !important;
+            background: linear-gradient(90deg, rgba(79, 70, 229, 0.15), rgba(59, 130, 246, 0.05)) !important;
+            box-shadow: 0 4px 16px rgba(79, 70, 229, 0.2) !important;
+        }
+
+        .btn-customer {
+            background: var(--customer-gradient);
+            color: white;
+            border: none;
+        }
+
+        .btn-customer:hover {
+            box-shadow: 0 8px 20px rgba(79, 70, 229, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .reward-badge {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: white;
+            padding: var(--space-1) var(--space-3);
+            border-radius: var(--radius-full);
+            font-size: var(--text-xs);
+            font-weight: var(--font-bold);
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-1);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="dashboard-sidebar">
+            <div class="logo">
+                <span>📚 Customer Portal</span>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="customer-dashboard.html" class="sidebar-link active">
+                    <span>📊 Overview</span>
+                </a>
+                <a href="all-books.html" class="sidebar-link">
+                    <span>🔍 Browse Books</span>
+                </a>
+                <a href="customer-orders.html" class="sidebar-link">
+                    <span>📦 My Orders</span>
+                </a>
+                <a href="customer-wishlist.html" class="sidebar-link">
+                    <span>❤️ Wishlist</span>
+                </a>
+                <a href="customer-account.html" class="sidebar-link">
+                    <span>👤 My Account</span>
+                </a>
+            </nav>
+
+            <!-- Sidebar Profile -->
+            <div class="sidebar-profile"
+                style="margin-top: auto; padding: var(--space-4); background: rgba(255, 255, 255, 0.05); border-radius: var(--radius-lg); display: flex; align-items: center; gap: var(--space-3); border: 1px solid rgba(255, 255, 255, 0.1);">
+                <div
+                    style="width: 40px; height: 40px; background: var(--customer-gradient); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: var(--font-bold);">
+                    JD
+                </div>
+                <div style="overflow: hidden;">
+                    <p style="color: white; font-weight: var(--font-semibold); margin: 0; font-size: var(--text-sm);">
+                        Jane Doe</p>
+                    <p
+                        style="color: #94a3b8; font-size: var(--text-xs); margin: 0; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">
+                        jane.doe@example.com</p>
+                </div>
+            </div>
+            <a href="../index.html" class="sidebar-link" style="margin-top: var(--space-4); color: var(--error-color);">
+                <span>🚪 Logout</span>
+            </a>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <!-- Header -->
+            <header class="dashboard-header">
+                <div style="display: flex; align-items: center; gap: var(--space-6); flex: 1;">
+                    <div>
+                        <h2>Welcome back, Jane! 👋</h2>
+                        <p class="text-light">Ready to find your next favorite book?</p>
+                    </div>
+                    <!-- Search Bar -->
+                    <div class="header-search" style="flex: 1; max-width: 400px; position: relative;">
+                        <span
+                            style="position: absolute; left: var(--space-4); top: 50%; transform: translateY(-50%); color: var(--text-muted);">🔍</span>
+                        <input type="text" class="form-control" placeholder="Search for books, authors..."
+                            style="padding-left: var(--space-10); background: rgba(255, 255, 255, 0.5); border-radius: var(--radius-full);">
+                    </div>
+                </div>
+                <div style="display: flex; align-items: center; gap: var(--space-4);">
+                    <div class="reward-badge">
+                        <span>⭐</span> 1,250 Points
+                    </div>
+                    <button class="btn btn-ghost" style="position: relative; padding: var(--space-2);">
+                        <span>🔔</span>
+                        <span
+                            style="position: absolute; top: 0; right: 0; width: 8px; height: 8px; background: var(--error-color); border-radius: 50%;"></span>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Stats Grid -->
+            <div class="stats-grid" style="margin-bottom: var(--space-8);">
+                <div class="stat-card hover-lift">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                        <div>
+                            <p class="text-light" style="font-size: var(--text-sm); margin-bottom: var(--space-1);">
+                                Active Orders</p>
+                            <h3 style="font-size: var(--text-3xl); margin: 0;">3</h3>
+                        </div>
+                        <span style="font-size: var(--text-2xl);">📦</span>
+                    </div>
+                    <p style="margin-top: var(--space-3); font-size: var(--text-xs); color: var(--success-color);">1
+                        arriving today</p>
+                </div>
+                <div class="stat-card hover-lift">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                        <div>
+                            <p class="text-light" style="font-size: var(--text-sm); margin-bottom: var(--space-1);">
+                                Wishlist Items</p>
+                            <h3 style="font-size: var(--text-3xl); margin: 0;">12</h3>
+                        </div>
+                        <span style="font-size: var(--text-2xl);">❤️</span>
+                    </div>
+                    <p style="margin-top: var(--space-3); font-size: var(--text-xs); color: var(--customer-accent);">2
+                        items on sale</p>
+                </div>
+                <div class="stat-card hover-lift">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                        <div>
+                            <p class="text-light" style="font-size: var(--text-sm); margin-bottom: var(--space-1);">
+                                Books Read</p>
+                            <h3 style="font-size: var(--text-3xl); margin: 0;">45</h3>
+                        </div>
+                        <span style="font-size: var(--text-2xl);">📖</span>
+                    </div>
+                    <p style="margin-top: var(--space-3); font-size: var(--text-xs); color: var(--text-muted);">Goal: 50
+                        this year</p>
+                </div>
+                <div class="stat-card hover-lift">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                        <div>
+                            <p class="text-light" style="font-size: var(--text-sm); margin-bottom: var(--space-1);">
+                                Saved Sellers</p>
+                            <h3 style="font-size: var(--text-3xl); margin: 0;">8</h3>
+                        </div>
+                        <span style="font-size: var(--text-2xl);">🏪</span>
+                    </div>
+                    <p style="margin-top: var(--space-3); font-size: var(--text-xs); color: var(--text-muted);">View
+                        updates</p>
+                </div>
+            </div>
+
+            <div class="grid grid-2" style="gap: var(--space-8); margin-bottom: var(--space-8);">
+                <!-- Recent Orders -->
+                <div class="card hover-lift">
+                    <div class="card-body">
+                        <div class="flex-between" style="margin-bottom: var(--space-6);">
+                            <h3 style="margin: 0;">Recent Orders</h3>
+                            <a href="customer-orders.html" class="btn btn-ghost btn-sm">View All →</a>
+                        </div>
+                        <div style="display: flex; flex-direction: column; gap: var(--space-4);">
+                            <div
+                                style="display: flex; align-items: center; gap: var(--space-4); padding: var(--space-3); background: rgba(255, 255, 255, 0.5); border-radius: var(--radius-md);">
+                                <img src="../assets/book_cover_gatsby_1766747844476.png"
+                                    style="width: 40px; height: 60px; object-fit: cover; border-radius: var(--radius-sm);">
+                                <div style="flex: 1;">
+                                    <p style="margin: 0; font-weight: var(--font-bold); font-size: var(--text-sm);">The
+                                        Great Gatsby</p>
+                                    <p style="margin: 0; font-size: var(--text-xs); color: var(--text-muted);">Ordered:
+                                        Dec 24, 2025</p>
+                                </div>
+                                <span class="badge badge-success">Delivered</span>
+                            </div>
+                            <div
+                                style="display: flex; align-items: center; gap: var(--space-4); padding: var(--space-3); background: rgba(255, 255, 255, 0.5); border-radius: var(--radius-md);">
+                                <img src="../assets/book_cover_1984_1766747863529.png"
+                                    style="width: 40px; height: 60px; object-fit: cover; border-radius: var(--radius-sm);">
+                                <div style="flex: 1;">
+                                    <p style="margin: 0; font-weight: var(--font-bold); font-size: var(--text-sm);">1984
+                                    </p>
+                                    <p style="margin: 0; font-size: var(--text-xs); color: var(--text-muted);">Ordered:
+                                        Dec 22, 2025</p>
+                                </div>
+                                <span class="badge badge-warning">In Transit</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recommended for You -->
+                <div class="card hover-lift">
+                    <div class="card-body">
+                        <div class="flex-between" style="margin-bottom: var(--space-6);">
+                            <h3 style="margin: 0;">Recommended for You</h3>
+                            <a href="all-books.html" class="btn btn-ghost btn-sm">Explore →</a>
+                        </div>
+                        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-4);">
+                            <div style="text-align: center;">
+                                <img src="../assets/book_cover_clean_code_1766747885406.png"
+                                    style="width: 100%; height: 120px; object-fit: cover; border-radius: var(--radius-md); margin-bottom: var(--space-2);">
+                                <p
+                                    style="margin: 0; font-size: var(--text-xs); font-weight: var(--font-bold); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                                    Clean Code</p>
+                            </div>
+                            <div style="text-align: center;">
+                                <img src="../assets/book_cover_design_patterns_1766747902292.png"
+                                    style="width: 100%; height: 120px; object-fit: cover; border-radius: var(--radius-md); margin-bottom: var(--space-2);">
+                                <p
+                                    style="margin: 0; font-size: var(--text-xs); font-weight: var(--font-bold); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                                    Design Patterns</p>
+                            </div>
+                            <div style="text-align: center;">
+                                <div
+                                    style="width: 100%; height: 120px; background: var(--customer-gradient); border-radius: var(--radius-md); margin-bottom: var(--space-2); display: flex; align-items: center; justify-content: center; color: white; font-size: 10px; font-weight: var(--font-bold); padding: 5px; text-align: center;">
+                                    The Alchemist</div>
+                                <p
+                                    style="margin: 0; font-size: var(--text-xs); font-weight: var(--font-bold); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                                    The Alchemist</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reading Progress -->
+            <div class="card hover-lift">
+                <div class="card-body">
+                    <h3 style="margin-bottom: var(--space-6);">Current Reading Progress</h3>
+                    <div style="display: flex; align-items: center; gap: var(--space-6);">
+                        <img src="../assets/book_cover_gatsby_1766747844476.png"
+                            style="width: 60px; height: 90px; object-fit: cover; border-radius: var(--radius-md);">
+                        <div style="flex: 1;">
+                            <div class="flex-between" style="margin-bottom: var(--space-2);">
+                                <h4 style="margin: 0;">The Great Gatsby</h4>
+                                <span
+                                    style="font-size: var(--text-sm); font-weight: var(--font-bold); color: var(--customer-accent);">65%</span>
+                            </div>
+                            <div
+                                style="width: 100%; height: 8px; background: var(--border-color); border-radius: var(--radius-full); overflow: hidden;">
+                                <div style="width: 65%; height: 100%; background: var(--customer-gradient);"></div>
+                            </div>
+                            <p style="margin-top: var(--space-3); font-size: var(--text-xs); color: var(--text-muted);">
+                                Last read: 2 hours ago • Page 124 of 180</p>
+                        </div>
+                        <button class="btn btn-customer">Continue Reading</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

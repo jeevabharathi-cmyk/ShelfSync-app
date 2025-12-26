@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Management - ShelfSync</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <style>
+        :root {
+            --seller-accent: #f43f5e;
+            --seller-accent-light: rgba(244, 63, 94, 0.1);
+            --seller-gradient: linear-gradient(135deg, #f43f5e, #fb923c);
+        }
+
+        .sidebar-link.active {
+            border-left-color: var(--seller-accent) !important;
+            background: linear-gradient(90deg, rgba(244, 63, 94, 0.15), rgba(251, 146, 60, 0.05)) !important;
+            box-shadow: 0 4px 16px rgba(244, 63, 94, 0.2) !important;
+        }
+
+        .btn-seller {
+            background: var(--seller-gradient);
+            color: white;
+            border: none;
+        }
+
+        .btn-seller:hover {
+            box-shadow: 0 8px 20px rgba(244, 63, 94, 0.3);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="dashboard-sidebar">
+            <div class="logo">
+                <span>🛍️ Seller Portal</span>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="seller-dashboard.html" class="sidebar-link">
+                    <span>📊 Overview</span>
+                </a>
+                <a href="seller-inventory.html" class="sidebar-link">
+                    <span>📚 My Inventory</span>
+                </a>
+                <a href="seller-orders.html" class="sidebar-link active">
+                    <span>📦 Orders</span>
+                </a>
+                <a href="seller-earnings.html" class="sidebar-link">
+                    <span>💰 Earnings</span>
+                </a>
+                <a href="seller-profile.html" class="sidebar-link">
+                    <span>👤 Store Profile</span>
+                </a>
+                <a href="seller-settings.html" class="sidebar-link">
+                    <span>⚙️ Settings</span>
+                </a>
+            </nav>
+
+            <!-- Sidebar Profile -->
+            <div class="sidebar-profile"
+                style="margin-top: auto; padding: var(--space-4); background: rgba(255, 255, 255, 0.05); border-radius: var(--radius-lg); display: flex; align-items: center; gap: var(--space-3); border: 1px solid rgba(255, 255, 255, 0.1);">
+                <div
+                    style="width: 40px; height: 40px; background: var(--seller-gradient); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: var(--font-bold);">
+                    S
+                </div>
+                <div style="overflow: hidden;">
+                    <p style="color: white; font-weight: var(--font-semibold); margin: 0; font-size: var(--text-sm);">
+                        BookHaven Store</p>
+                    <p
+                        style="color: #94a3b8; font-size: var(--text-xs); margin: 0; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">
+                        contact@bookhaven.com</p>
+                </div>
+            </div>
+            <a href="../index.html" class="sidebar-link" style="margin-top: var(--space-4); color: var(--error-color);">
+                <span>🚪 Logout</span>
+            </a>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <!-- Header -->
+            <header class="dashboard-header">
+                <div style="display: flex; align-items: center; gap: var(--space-6); flex: 1;">
+                    <div>
+                        <h2>Order Management</h2>
+                        <p class="text-light">Track and fulfill your customer orders</p>
+                    </div>
+                    <!-- Search Bar -->
+                    <div class="header-search" style="flex: 1; max-width: 400px; position: relative;">
+                        <span
+                            style="position: absolute; left: var(--space-4); top: 50%; transform: translateY(-50%); color: var(--text-muted);">🔍</span>
+                        <input type="text" class="form-control" placeholder="Search by Order ID or Buyer..."
+                            style="padding-left: var(--space-10); background: rgba(255, 255, 255, 0.5); border-radius: var(--radius-full);">
+                    </div>
+                </div>
+                <div style="display: flex; align-items: center; gap: var(--space-3);">
+                    <button class="btn btn-outline hover-lift">📥 Export Orders</button>
+                </div>
+            </header>
+
+            <!-- Quick Filters -->
+            <div
+                style="display: flex; gap: var(--space-3); margin-bottom: var(--space-6); overflow-x: auto; padding-bottom: var(--space-2);">
+                <button class="btn btn-sm btn-seller" style="white-space: nowrap;">All Orders (320)</button>
+                <button class="btn btn-sm btn-outline" style="white-space: nowrap; background: white;">📦 Pending
+                    (12)</button>
+                <button class="btn btn-sm btn-outline" style="white-space: nowrap; background: white;">🚚 Shipped
+                    (45)</button>
+                <button class="btn btn-sm btn-outline" style="white-space: nowrap; background: white;">⭐ High Value
+                    (8)</button>
+                <button class="btn btn-sm btn-outline" style="white-space: nowrap; background: white;">📅 Today
+                    (5)</button>
+            </div>
+
+            <!-- Filters -->
+            <div class="card" style="margin-bottom: var(--space-6);">
+                <div class="card-body" style="display: flex; gap: var(--space-4); align-items: flex-end;">
+                    <div class="form-group" style="margin: 0; flex: 1;">
+                        <label class="form-label">Status</label>
+                        <select class="form-control">
+                            <option>All Status</option>
+                            <option>Pending</option>
+                            <option>Shipped</option>
+                            <option>Delivered</option>
+                            <option>Cancelled</option>
+                        </select>
+                    </div>
+                    <div class="form-group" style="margin: 0; flex: 1;">
+                        <label class="form-label">Time Period</label>
+                        <select class="form-control">
+                            <option>Last 30 Days</option>
+                            <option>Last 90 Days</option>
+                            <option>This Year</option>
+                            <option>All Time</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-outline hover-lift">Apply Filters</button>
+                </div>
+            </div>
+
+            <!-- Orders Table -->
+            <div class="table-container hover-lift">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Book(s)</th>
+                            <th>Buyer</th>
+                            <th>Total</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span style="font-weight: var(--font-bold);">#ORD-501</span></td>
+                            <td>
+                                <div style="display: flex; align-items: center; gap: var(--space-3);">
+                                    <img src="../assets/book_cover_gatsby_1766747844476.png"
+                                        style="width: 32px; height: 48px; object-fit: cover; border-radius: var(--radius-sm);">
+                                    <div>
+                                        <p
+                                            style="margin: 0; font-size: var(--text-sm); font-weight: var(--font-medium);">
+                                            Learning Python</p>
+                                        <p style="margin: 0; font-size: var(--text-xs); color: var(--text-muted);">Qty:
+                                            1</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>Jane Doe</td>
+                            <td style="font-weight: var(--font-bold);">$12.99</td>
+                            <td>Dec 24, 2025</td>
+                            <td><span class="badge badge-success">✓ Delivered</span></td>
+                            <td>
+                                <div style="display: flex; gap: var(--space-2);">
+                                    <button class="btn btn-outline btn-sm">Details</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span style="font-weight: var(--font-bold);">#ORD-502</span></td>
+                            <td>
+                                <div style="display: flex; align-items: center; gap: var(--space-3);">
+                                    <img src="../assets/book_cover_1984_1766747863529.png"
+                                        style="width: 32px; height: 48px; object-fit: cover; border-radius: var(--radius-sm);">
+                                    <div>
+                                        <p
+                                            style="margin: 0; font-size: var(--text-sm); font-weight: var(--font-medium);">
+                                            Intro to Algorithms</p>
+                                        <p style="margin: 0; font-size: var(--text-xs); color: var(--text-muted);">Qty:
+                                            1</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>Adam Smith</td>
+                            <td style="font-weight: var(--font-bold);">$10.50</td>
+                            <td>Dec 23, 2025</td>
+                            <td><span class="badge badge-warning">⏳ Shipped</span></td>
+                            <td>
+                                <div style="display: flex; gap: var(--space-2);">
+                                    <button class="btn btn-seller btn-sm">Track</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span style="font-weight: var(--font-bold);">#ORD-503</span></td>
+                            <td>
+                                <div style="display: flex; align-items: center; gap: var(--space-3);">
+                                    <img src="../assets/book_cover_clean_code_1766747882145.png"
+                                        style="width: 32px; height: 48px; object-fit: cover; border-radius: var(--radius-sm);">
+                                    <div>
+                                        <p
+                                            style="margin: 0; font-size: var(--text-sm); font-weight: var(--font-medium);">
+                                            Clean Code</p>
+                                        <p style="margin: 0; font-size: var(--text-xs); color: var(--text-muted);">Qty:
+                                            2</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>Sarah Wilson</td>
+                            <td style="font-weight: var(--font-bold);">$70.00</td>
+                            <td>Today, 9:15 AM</td>
+                            <td><span class="badge"
+                                    style="background: rgba(59, 130, 246, 0.1); color: var(--primary-color);">📦
+                                    Pending</span></td>
+                            <td>
+                                <div style="display: flex; gap: var(--space-2);">
+                                    <button class="btn btn-seller btn-sm">Ship Now</button>
+                                    <button class="btn btn-outline btn-sm">Cancel</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Pagination -->
+            <div class="flex-between" style="margin-top: var(--space-6);">
+                <p class="text-light">Showing 1-3 of 320 orders</p>
+                <div class="flex-center" style="gap: var(--space-2);">
+                    <button class="btn btn-ghost btn-sm" disabled>← Prev</button>
+                    <button class="btn btn-seller btn-sm">1</button>
+                    <button class="btn btn-outline btn-sm">2</button>
+                    <button class="btn btn-outline btn-sm">Next →</button>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>
